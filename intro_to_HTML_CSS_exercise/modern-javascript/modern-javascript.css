@@ -1,0 +1,24 @@
+#wrapper {
+    background-color: #5bc0de;
+    width: 750px;
+    box-shadow: 0 0 30px 20px #80ea53;
+    border: 2px solid greenyellow;
+    color: rgb(196, 14, 96);
+}
+
+body {
+    display: flex;
+    justify-content: center;
+}
+
+p {
+    font-style: italic;
+}
+
+
+/* background-color: #f7f381;
+    padding: 8px 24px;
+    width: 500px;
+    border: 1px solid #f7f381;
+    font-size: 30px;
+    box-shadow: 0 0 10px 2px #333333; */
