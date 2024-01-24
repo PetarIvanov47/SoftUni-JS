@@ -1,0 +1,31 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+h2, h3 {
+    text-align: center;
+    margin: 1em;
+}
+
+h2 {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+h3 {
+    font-weight: bold;
+}
+
+p {
+    text-indent: 2em;
+}
+
+article {
+    width: 500px;
+    height: 200px;
+    background-color: lightgray;
+    padding: 10px;
+    overflow: auto;
+}
