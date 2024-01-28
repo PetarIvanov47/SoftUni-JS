@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,700;1,400;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,400;0,600;1,600&display=swap');
 
-
 * {
     margin: 0;
     padding: 0;
 }
+
 body {
     background-color: lightgreen;
     padding: 40px;
@@ -23,11 +23,11 @@ section {
 h2 {
     font-family: 'Merriweather', serif;
     font-weight: 700;
-    margin: 1.2rem 0 1.2rem 0;
+    margin: 1.2rem 0;
     color: rgb(51, 51, 51);
 }
 
-div p{
+div {
     font-weight: 600;
     font-size: 20px;
 }
@@ -37,7 +37,7 @@ button {
     font-family: 'Work Sans', sans-serif;
     font-weight: 600;
     font-size: 18px;
-    border-radius: 4px;
+    border-radius: 5px;
     background-color: #d5384d;
     color: #fff;
     letter-spacing: 1px;
@@ -48,5 +48,4 @@ button {
 
 p {
     font: 18px/30px 'Georgia', 'Cambria', 'Times New Roman', 'Times', serif;
-    margin-top: 0;
 }
