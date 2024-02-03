@@ -1,0 +1,105 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(238, 238, 238);
+    padding: 2.5em 5em;
+}
+
+div.page {
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    border-bottom: 2px solid black;
+    padding-bottom: 1em;
+}
+
+header p a{
+    text-decoration: none;
+    color: black;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 3em;
+}
+
+main {
+    display: flex;
+    margin-top: 2em;
+}
+
+article {
+    flex-basis: 75%;
+}
+
+aside {
+    flex-basis: 25%;
+    padding-left: 3em;
+}
+
+aside a {
+    color: rgb(0, 153, 0);
+    text-decoration: none;
+}
+
+aside h1 {
+    margin-bottom: 0.5em;
+}
+
+ul {
+    margin-left: 2em;
+}
+
+aside section {
+    margin-bottom: 1em;
+}
+
+.level1 img {
+    float: right;
+    margin-left: 1em;
+}
+
+footer img {
+    float: left;
+    margin-right: 1em;
+}
+
+img {
+    display: block;
+    margin: auto;
+    border: 2px solid black;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    padding: 0.5em;
+    box-shadow: 0 0 2em 1em rgb(0, 0, 0, 0.5);
+}
+
+blockquote,
+h1 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+main article h1 {
+    font-size: 1.5em;
+}
+
+.level1,
+.level2 {
+    margin-bottom: 3em;
+    text-align: justify;
+}
+
+blockquote {
+    float: right;
+    color: darkcyan;
+    border: 1px solid black;
+}
+
+main p {
+    margin: 1em 0 1em 0;
+}
+
