@@ -13,7 +13,6 @@ body {
     flex-direction: column;
     background-color: rgb(238, 238, 238);
     height: 100vh;
-    border: 2px solid black;
 }
 
 header p a {
