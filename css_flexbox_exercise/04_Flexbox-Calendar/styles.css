@@ -13,6 +13,7 @@ body {
     display: flex;
     max-width: 65vw;
     border: 1px solid black;
+    margin: 0 auto;
 }
 
 section {
@@ -20,27 +21,18 @@ section {
     flex-wrap: wrap;
 }
 
-.notes {
-    flex-direction: column;
-    width: 30%;
-}
-
-.notes span {
-    padding: 0.3em 0.5em 0 0.5em;
-    background-color: white;
-}
 
 span {
     border: 1px solid black;
     flex-grow: 1;
     padding: 1em 1em 3em 1em;
     text-align: center;
+
 }
 
-section.week span:nth-child(1),
-section.week span:nth-child(7) {
-    flex-basis: 100%;
-    text-align: center;
+section span:nth-child(1),
+section span:nth-child(7) {
+    flex: 1 0 100%;
 }
 
 section.week span:nth-child(1),

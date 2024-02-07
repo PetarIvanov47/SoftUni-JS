@@ -15,7 +15,7 @@ body {
 
 section {
     display: flex;
-    max-width: 70vw;
+    max-width: 70vw;    
     margin: auto;
     justify-content: space-between;
     gap: 3em;

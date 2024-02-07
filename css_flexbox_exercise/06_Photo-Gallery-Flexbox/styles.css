@@ -19,7 +19,7 @@ body {
 img {
     width: 100%;
     display: block;
-    margin: auto;
+    height: auto;
 }
 
 ul {
@@ -34,6 +34,7 @@ li {
     border: 10px solid black;
     padding: 1em;
     background-color: #fff;
-    flex: 1 0 30%;
-    max-width: 33%;
+    flex: 0 0 30%;
+    list-style: none outside;
+    align-items: center;
 }
