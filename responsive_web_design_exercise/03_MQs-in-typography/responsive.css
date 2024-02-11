@@ -1,0 +1,59 @@
+@media (max-width: 500px) {
+    html {
+        font-size: 12px;
+    }
+
+    body {
+        background-color: red;
+    }
+}
+
+@media (min-width: 500px) {
+    html {
+        font-size: 14px;
+    }
+
+    body {
+        background-color: blue;
+    }
+}
+
+@media (min-width: 600px) {
+    html {
+        font-size: 16px;
+    }
+
+    body {
+        background-color: pink;
+    }
+}
+
+@media (min-width: 800px) {
+    html {
+        font-size: 18px;
+    }
+
+    body {
+        background-color: orange;
+    }
+}
+
+@media (min-width: 1300px) {
+    html {
+        font-size: 21px;
+    }
+
+    body {
+        background-color: green;
+    }
+}
+
+@media (min-width: 1800px) {
+    html {
+        font-size: 23px;
+    }
+
+    body {
+        background-color: lightgray;
+    }
+}
