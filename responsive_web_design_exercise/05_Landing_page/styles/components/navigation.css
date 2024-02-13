@@ -1,0 +1,21 @@
+nav {
+    display: flex;
+    border: 1px solid blue;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul {
+    display: flex;
+}
+
+nav ul li {
+    list-style: none;
+    display: inline-block;
+    margin: 1em;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+}
