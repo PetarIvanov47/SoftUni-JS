@@ -1,26 +1,63 @@
 .page {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 
-header.site-header {
-    display: flex;
-    padding: 0.5em;
+.site-header,
+.site-footer,
+.sign-up {
     flex: 0 0 100%;
 }
 
-.site-title {
-    flex: 0 1 50%;
-    display: flex;
-    
+
+.horde-characters,
+.alliance-characters {
+    flex: 0 0 60%;
+
+    & div.title {
+        flex: 0 0 100%;
+    }
 }
 
-.content {
-    display: flex;
-    flex-direction: column;
+.about {
+    flex: 0 0 60%;
 }
 
-nav {
-    flex: 0 1 50%;
+blockquote {
+    flex: 0 1 60%;
+}
+
+figure {
+    flex: 0 1 30%;
+}
+
+.card {
+    flex: 0 0 30%;
+}
+
+.sign-up {
+    flex: 0 0 100%;
+}
+
+.site-footer {
+    flex: 0 0 100%;
+}
+
+.info {
+    flex: 0 0 20%;
+}
+
+form {
+    flex: 0 1 30%;
+}
+
+.search-input {
+    width: 100%;
+}
+
+input {
+    flex: 0 0 70%;
 }
 

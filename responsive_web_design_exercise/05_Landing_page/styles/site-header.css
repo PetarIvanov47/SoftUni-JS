@@ -1,5 +1,13 @@
 header.site-header {
-    border: 2px solid black;
+    display: flex;
+    padding: 0.5em;
+    margin-bottom: 2em;
+}
+
+.title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .site-title .title {
@@ -13,4 +21,6 @@ header.site-header {
     line-height: 1;
     opacity: 0.7;
     text-transform: uppercase;
+    font-family: "Smooch Sans", sans-serif;
+    font-size: 1.5em;
 }

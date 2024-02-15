@@ -1,0 +1,26 @@
+.card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    margin-top: 5em;
+}
+
+.avatar {
+    flex: 0 0 100%;
+    overflow: hidden;
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+}
+
+.card-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card p {
+    text-align: center;
+}

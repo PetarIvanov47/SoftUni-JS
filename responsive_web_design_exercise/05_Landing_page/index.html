@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Landing page</title>
+    <script src="https://kit.fontawesome.com/ce1f3cbdf4.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles/page.css">
 </head>
 <body>
     <div class="page">
         <header class="site-header">
-            <div class="site-title">
-                <div class="content">
+            <div class="title-container">
+                <div class="site-title">
                     <p class="title">World of Warcraft</p>
                     <p class="subtitle">The only story that you need</p>
                 </div>
@@ -25,17 +26,31 @@
                 </ul>
             </nav>
         </header>
+        
         <main class="site-main">
+            
             <section class="about">
-                <h1>Welcome to Azeroth</h1>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque modi porro maxime facere eos in, tempora possimus ullam blanditiis assumenda deleniti culpa sint fugit dicta illo perspiciatis commodi alias ipsa.</p>
-                <a class="button">Learn More</a>
+                <blockquote>
+                    <h1>Welcome to Azeroth</h1>
+                    <p>Azeroth is the name of the world in which the majority of the Warcraft series is set. At its core dwells a slumbering world-soul, the nascent spirit of a titan. Long ago, it was invaded by the Old Gods, eldritch abominations from the Void. When the Pantheon arrived, the titans imprisoned the Old Gods deep beneath the earth, before healing and ordering the world, and seeding life across the planet. A great fount of magic that would nurture the land was placed at the center of Kalimdor, known as the Well of Eternity</p>
+                    <div class="buttons-container">
+                        <a href="https://wowpedia.fandom.com/wiki/Azeroth" class="button">Learn More</a>
+                    </div>
+                </blockquote>
+                
                 <figure>
-                    <img src="#" alt="">
-                </figure>
+                    <div class="circle">
+                        <img src="media/29583-azeroth-map-updated-with-dragon-isles-location-on-the-dragonflight-ptr.jpg">
+                    </div>
+                </figure> 
+                
             </section>
             <section class="horde-characters">
-                <h1>Horder</h1>
+                <div class="title">
+                    <h1>Horde</h1>
+                    <hr>
+                </div>
+                
                 <div class="card">
                     <div class="avatar">
                         <img src="media/thrall.jpg">
@@ -45,7 +60,7 @@
                         <p>Chieftain of the Frostwolf Clan</p>
                     </div>
                     <div class="content">
-                        <p>Thrall , son of Durotan and Draka, is the former Warchief of the restored shamanistic Horde.</p>
+                        <p>Thrall , son of Durotan and Draka, is the former Warchief of the restored shamanistic Horde. lo</p>
                     </div>
                 </div>
                 <div class="card">
@@ -62,7 +77,7 @@
                 </div>
                 <div class="card">
                     <div class="avatar">
-                        <img src="media/Zekhan.webp">
+                        <img src="media/wey-wong-wey-wong-zekanfront.jpg">
                     </div>
                     <div class="card-title">
                         <h3>Zekhan</h3>
@@ -86,7 +101,7 @@
                 </div>
                 <div class="card">
                     <div class="avatar">
-                        <img src="media/Durotan1.webp">
+                        <img src="media/d9n4uhs-f054513b-fe21-4407-ade6-86d870ed101e.jpg">
                     </div>
                     <div class="card-title">
                         <h3>Durotan</h3>
@@ -108,57 +123,55 @@
                         <p>Baine Bloodhoof is the High Chieftain of the tauren tribes of Mulgore and leader of Thunder Bluff.</p>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="avatar">
-                        <img src="media/sylvanas.jpg">
-                    </div>
-                    <div class="card-title">
-                        <h3>Sylvanas Windrunner</h3>
-                        <p>Banshee Queen</p>
-                    </div>
-                    <div class="content">
-                        <p>Lady Sylvanas Windrunner, formerly styled "the Dark Lady" and "the Banshee Queen".</p>
-                    </div>
-                </div>
             </section>
+            
             <section class="sign-up">
-                <header class="sign-up-title">
-                    <p>Sign-up to our newsletter</p>
-                </header>
-                <div class="search">
-                    <input type="search" id="site-search" name="q" />
-                </div>
+                <form action="#" method="get">
+                    <div class="title">
+                        <label for="site-search"><h3>Sign-up to our newsletter!</h3></label>
+                        <hr>
+                    </div>
+                    
+                    <div class="search-input">
+                        <input type="text" id="site-search" name="q"/>
+                        <button type="submit" for="site-search">Sign-up</button>
+                    </div>
+                    
+                </form>
             </section>
-
+            
             <section class="alliance-characters">
-                <h1>Alliance</h1>
+                <div class="title">
+                    <h1>Alliance</h1>
+                    <hr>
+                </div>
                 <div class="card">
                     <div class="avatar">
-                        <img src="#">
+                        <img src="media/Anduin_by_Erik_Braddock_-_cropped.webp">
                     </div>
                     <div class="card-title">
                         <h3>Anduin Wrynn</h3>
                         <p>King of Stormwind</p>
                     </div>
                     <div class="content">
-                        <p>Anduin Llane Wrynn[10][3] is the King of Stormwind, High King of the Alliance, and commander of all Alliance forces.</p>
+                        <p>Anduin Llane Wrynn is the King of Stormwind, High King of the Alliance, and commander of all Alliance forces.</p>
                     </div>
                 </div>
                 <div class="card">
                     <div class="avatar">
-                        <img src="#">
+                        <img src="media/Varian_Wrynn.webp">
                     </div>
                     <div class="card-title">
                         <h3>Varian Wrynn</h3>
                         <p>The Wolf</p>
                     </div>
                     <div class="content">
-                        <p>Varian Wrynn was the King of Stormwind and High King of the Grand Alliance.[11] During the First War when Varian was a young boy, his father King Llane was murdered and Stormwind was sacked by the Orcish Horde.</p>
+                        <p>Varian Wrynn was the King of Stormwind and High King of the Grand Alliance.During the First War when Varian was a young boy, his father King Llane was murdered and Stormwind was sacked by the Orcish Horde.</p>
                     </div>
                 </div>
                 <div class="card">
                     <div class="avatar">
-                        <img src="#">
+                        <img src="media/54e94ab7b36c0a8536de5859ee1279092a68184d968c4725fd879a8268cb4079.jpg">
                     </div>
                     <div class="card-title">
                         <h3>Jaina Proudmoore</h3>
@@ -170,7 +183,7 @@
                 </div>
                 <div class="card">
                     <div class="avatar">
-                        <img src="#">
+                        <img src="media/Uther_box_art.webp">
                     </div>
                     <div class="card-title">
                         <h3>Uther</h3>
@@ -182,19 +195,19 @@
                 </div>
                 <div class="card">
                     <div class="avatar">
-                        <img src="#">
+                        <img src="media/Malfurion_WotE_Cropped.webp">
                     </div>
                     <div class="card-title">
                         <h3>Malfurion Stormrage</h3>
                         <p>Arch-Druid of the Moonglade</p>
                     </div>
                     <div class="content">
-                        <p>Malfurion Stormrage was the first mortal[14] druid on Azeroth,[15][16][17] and the night elf who initiated the mainstream use of druidism among the kaldorei people.</p>
+                        <p>Malfurion Stormrage was the first mortal druid on Azeroth, and the night elf who initiated the mainstream use of druidism among the kaldorei people.</p>
                     </div>
                 </div>
                 <div class="card">
                     <div class="avatar">
-                        <img src="#">
+                        <img src="media/Medivh_Cropped.webp">
                     </div>
                     <div class="card-title">
                         <h3>Medivh</h3>
@@ -204,26 +217,17 @@
                         <p>Medivh was the last Guardian of Tirisfal, an ancient line of protectors bestowed with great powers to do battle with the agents of the Burning Legion.</p>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="avatar">
-                        <img src="#">
-                    </div>
-                    <div class="card-title">
-                        <h3>Magni Bronzebeard</h3>
-                        <p>The Speaker</p>
-                    </div>
-                    <div class="content">
-                        <p>Magni Bronzebeard is the former king of the dwarven kingdom of Khaz Modan, Thane of Ironforge and head of the Bronzebeard clan.</p>
-                    </div>
-                </div>
             </section>
-            <footer class="site-footer">
-                <section class="info">
-                    <h1>World of Warcraft</h1>
-                    <p>World of Warcraft, often abbreviated as WoW (or, when referring to the original game, vanilla, classic, or pre-BC), is a massively multiplayer online roleplaying game (MMORPG) developed by Blizzard Entertainment </p>
-                </section>
-                <section class="sitemap">
-                    <h1>Sitemap</h1>
+        </main>
+        <footer class="site-footer">
+            <section class="info">
+                <h1>World of Warcraft</h1>
+                <p>World of Warcraft, often abbreviated as WoW (or, when referring to the original game, vanilla, classic, or pre-BC), is a massively multiplayer online roleplaying game (MMORPG) developed by Blizzard Entertainment </p>
+            </section>
+            <section class="sitemap">
+                <h3>Sitemap</h3>
+                
+                <div class="ul-container">
                     <ul>
                         <li>Home</li>
                         <li>Services</li>
@@ -235,39 +239,35 @@
                         <li>Blog</li>
                         <li>Terms and Conditions</li>
                     </ul>
-                </section>
-
-                <section class="contacts">
-                    <h1>Contacts</h1>
+                </div>
+            </section>
+            
+            <section class="contacts">
+                <ul>
+                    <h3>Contacts</h3>
                     <li>
-                        <a>
-                            <i class="fa-solid fa-house-user"></i>
-                            0700 12 345
-                        </a>
+                        <i class="fa-solid fa-house-user"></i>
+                        0700 12 345
                     </li>
                     <li>
-                        <a>
-                            <i class="fa-solid fa-house-user"></i>
-                            office@warcraft.org
-                        </a>
+                        <i class="fa-solid fa-house-user"></i>
+                        office@warcraft.org
                     </li>
                     <li>
-                        <a>
-                            <i class="fa-solid fa-house-user"></i>
-                            Monday - Friday: 09:00 - 18:00
-                        </a>
+                        
+                        <i class="fa-solid fa-house-user"></i>
+                        Monday - Friday: 09:00 - 18:00
+                        
                     </li>
                     <li>
-                        <a>
-                            <i class="fa-solid fa-house-user"></i>
-                            Azeroth,
-                            Ogrimmar.
-                            Valey of Honor.
-                        </a>
+                        <i class="fa-solid fa-house-user"></i>
+                        Azeroth,
+                        Ogrimmar.
+                        Valey of Honor.
                     </li>
-                </section>
-            </footer>
-        </main>
+                </ul>
+            </section>
+        </footer>
     </div>
 </body>
 </html>

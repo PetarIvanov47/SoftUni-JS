@@ -1,0 +1,30 @@
+.about {
+    display: flex;
+    background-color: white;
+}
+
+
+blockquote {
+    display: flex;
+    flex-direction: column;
+    padding-right: 2em;
+}
+
+.buttons-container {
+    display: flex;
+}
+
+figure {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+}
+

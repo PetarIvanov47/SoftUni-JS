@@ -1,0 +1,40 @@
+.sign-up {
+    display: flex;
+    background-color: purple;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+
+    & div.title {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: #eee;
+    }
+
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-input {
+    display: flex;
+    justify-content: center;
+    gap: 0.4em;
+    width: 100%;
+}
+
+input {
+    padding: 0.5em 1em;
+    outline: none;
+    border-radius: 0.2em;
+    border: none;
+}
+
+

@@ -1,12 +1,12 @@
 nav {
     display: flex;
-    border: 1px solid blue;
     justify-content: center;
     align-items: center;
 }
 
 nav ul {
     display: flex;
+    flex-wrap: wrap;
 }
 
 nav ul li {
