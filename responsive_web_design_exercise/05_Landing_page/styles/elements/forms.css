@@ -1,6 +1,5 @@
 .sign-up {
     display: flex;
-    background-color: purple;
     justify-content: center;
     align-items: center;
     padding: 1em;
@@ -10,7 +9,12 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        text-align: center;
         color: #eee;
+
+        & hr {
+            background-color: #eee;
+        }
     }
 
 }
@@ -34,6 +38,8 @@ input {
     padding: 0.5em 1em;
     outline: none;
     border-radius: 0.2em;
+    border-top-left-radius: 1em;
+    border-bottom-left-radius: 1em;
     border: none;
 }
 

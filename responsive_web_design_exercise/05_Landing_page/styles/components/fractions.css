@@ -3,7 +3,11 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: baseline;
     gap: 2em;
+    color: white;
+    border-radius: 24px;
+    padding-bottom: 2em;
 
     & div.title {
         display: flex;
@@ -12,3 +16,38 @@
         align-items: center;
     }
 }
+
+.horde-characters{
+    background-image: url("https://c4.wallpaperflare.com/wallpaper/867/938/404/world-of-warcraft-horde-sign-wallpaper-preview.jpg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+
+    & div.title{
+        color: rgb(173, 6, 6);
+    }
+
+
+    & div.title hr {
+        background-color: rgb(173, 6, 6);
+    }
+}
+
+.alliance-characters{
+    background-image: url("https://preview.redd.it/which-side-are-you-minimal-classic-themed-wallpapers-sod-v0-9ygwd3h0ed3c1.jpg?width=640&crop=smart&auto=webp&s=6ad2b4cff9042a4cbb42b36d812c8003c5ae3d67");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+
+    & div.title{
+        color: rgb(245, 218, 63);
+    }
+
+    & div.title hr {
+        background-color: rgb(245, 218, 63);
+    }
+}
+
+
+
+

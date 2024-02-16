@@ -1,3 +1,12 @@
+body {
+    background-color: rgb(55, 50, 50);
+    padding: 1em;
+}
+
+/* body::-webkit-scrollbar {
+    display: none;
+} */
+
 .page {
     display: flex;
     flex-wrap: wrap;
@@ -14,19 +23,17 @@
 
 .horde-characters,
 .alliance-characters {
-    flex: 0 0 60%;
+    flex: 0 0 100%;
 
     & div.title {
         flex: 0 0 100%;
     }
 }
 
-.about {
-    flex: 0 0 60%;
-}
+
 
 blockquote {
-    flex: 0 1 60%;
+    flex: 0 1 70%;
 }
 
 figure {
@@ -34,7 +41,7 @@ figure {
 }
 
 .card {
-    flex: 0 0 30%;
+    flex: 0 0 45%;
 }
 
 .sign-up {
@@ -46,11 +53,11 @@ figure {
 }
 
 .info {
-    flex: 0 0 20%;
+    flex: 0 0 25%;
 }
 
 form {
-    flex: 0 1 30%;
+    flex: 0 1 70%;
 }
 
 .search-input {

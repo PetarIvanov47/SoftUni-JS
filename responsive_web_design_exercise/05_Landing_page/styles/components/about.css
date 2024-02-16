@@ -1,13 +1,19 @@
 .about {
     display: flex;
-    background-color: white;
+    color: white;
+    border-radius: 10px;
+    padding: 2em;
 }
 
 
 blockquote {
     display: flex;
     flex-direction: column;
-    padding-right: 2em;
+    padding-right: 1em;
+}
+
+blockquote h2 {
+    color: rgb(236, 78, 16);
 }
 
 .buttons-container {
@@ -26,5 +32,8 @@ figure {
     border-radius: 50%;
     overflow: hidden;
     display: flex;
+    box-shadow: 0 0 3em 0.1em rgba(236, 78, 16, 0.6);
+    transition: box-shadow 0.7s ease-out;
 }
+
 

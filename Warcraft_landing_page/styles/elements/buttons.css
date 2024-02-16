@@ -1,0 +1,22 @@
+button {
+    padding: 0 1em;
+    border-radius: 0.2em;
+    border-top-right-radius: 1em;
+    border-bottom-right-radius: 1em;
+    border: none;
+}
+
+.button {
+    background-color: rgb(9, 130, 130);
+    text-decoration: none;
+    padding: 0.3em;
+    border-radius: 10px;
+    color: #fff;
+    opacity: 0.8;
+    transition: opacity 0.3s ease-in;
+}
+
+.button:hover {
+    opacity: 1;
+}
+

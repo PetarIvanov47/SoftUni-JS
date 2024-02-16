@@ -1,0 +1,22 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+* , *::before, *::after {
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+body, input, button {
+    font: inherit;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
