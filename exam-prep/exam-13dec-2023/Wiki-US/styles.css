@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Agbalumo&display=swap");
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font: 16px/1.5 "Agbalumo";
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+body {
+    padding: 2em;
+}
+
+.card {
+    max-width: 870px;
+    border: 2px solid black;
+    margin: auto;
+}
+
+.card-header {
+    background-color: #D5EBEA;
+}
+
+.card-title {
+    text-align: center;
+    padding: 2.62em 3em 0 1.25em;
+}
+
+.card-title h1 {
+    font-size: 36px;
+    border-bottom: 2px solid black;
+}
+
+.card-title p {
+    border-bottom: 2px solid black;
+}
+
+.card-main {
+    display: flex;
+    padding: 2.62em 3em 2em 1.25em;
+}
+
+.card-map {
+    border: 2px solid black;
+    padding: 0.7em;
+    flex: 0 0 293px;
+}
+
+.card-map p{
+    text-indent: 1.81em;
+    font-size: 0.70em;
+    padding: 1.81em 0 0 0;
+}
+
+blockquote p {
+    text-indent: 2em;
+    padding: 1.56em 1.93em 0.37em 1.93em;
+}
+
+.card-footer .information {
+    background-color: #D5EBEA;
+    padding: 1.25em 1em 0.68em 1.25em;
+}
+
+.card-footer h3 {
+    background-color: #000;
+    color: #fff;
+    margin-right: auto;
+    padding: 0.37em 2.37em 0 2.37em;
+    display: inline;
+    font-size: 24px;
+}
+
+.information p {
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 2;
+}
+
+.information span {
+    padding-left: 5px;
+    font-weight: normal;
+}
