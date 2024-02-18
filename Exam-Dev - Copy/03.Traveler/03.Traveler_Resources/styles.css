@@ -1,0 +1,237 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Infant&display=swap");
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font: 18px/1.5 "Karla";
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.header-background {
+    background-image: url("images/poster.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.page-section {
+    padding: 2em 4em;
+}
+
+.site-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.site-logo a{
+    display: block;
+    width: 132px;
+    height: 79px;
+    text-indent: -200vw;
+    background-image: url("images/logo.webp");
+    overflow: hidden;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+nav ul {
+    display: flex;
+    gap: 1em;
+}
+
+nav ul li {
+    list-style: none;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+.content-container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.banner h1{
+    color: white;
+    font-family: "Cormorant Infant";
+    font-size: 90px;
+    margin: 1.70em 0 1.70em 0;
+}
+
+.banner p{
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    margin: 9em;
+}
+
+
+.about {
+    background-color: #F8F0E9;
+}
+
+.about p {
+    font-size: 16px;
+    margin-bottom: 5em;
+}
+
+.about blockquote {
+    font-size: 90px;
+    line-height: 0.9;
+    font-family: "Cormorant Infant";
+    padding-bottom: 0.7em;
+    font-style: italic;
+    font-weight: 600;
+}
+
+.work-time {
+    background-color: #E14747;
+    text-align: center;
+    color: white;
+    padding: 4em 0 4em 0;
+}
+
+.work-time h4 {
+    font-size: 18px;
+    margin-bottom: 2.5em;
+}
+
+
+.work-time .content-container {
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+}
+
+.work-time .content {
+    flex: 0 0 25%;
+}
+
+.more-information {
+    background-color: #F8F0E9;
+}
+
+
+.more-information .content-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    flex: 0 0 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 4em;
+    justify-content: center;
+    align-items: center;
+}
+
+.card h2{
+    font-size: 80px;
+    font-family: "Cormorant Infant";
+    line-height: 1;
+    text-align: center;
+}
+
+.card .button{
+    text-decoration: none;
+    color: #000;
+    font-size: 16px;
+    border: 2px solid black;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.card a.read-more {
+    align-self: flex-start;
+}
+
+
+.help {
+    background-color: #E14747;
+    color: white;
+}
+
+.help .content-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 3em;
+    padding: 2.5em;
+    max-width: 50%;
+    text-align: center;
+}
+
+.guide {
+    text-decoration: none;
+    padding: 0.7em 1em;
+    font-size: 16px;
+    background-color: #FAD87A;
+    border-radius: 40px;
+    color: black;
+}
+
+.site-footer {
+    background-color: #352B2A;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    padding: 2em 4em;
+    font-size: 16px;
+    color: #fff;
+}
+
+.copy-right {
+    opacity: 0.5;
+}
+
+.site-footer a{
+    display: block;
+    width: 60px;
+    height: 40px;
+    text-indent: -200vw;
+    background-image: url("images/logo.webp");
+    overflow: hidden;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
