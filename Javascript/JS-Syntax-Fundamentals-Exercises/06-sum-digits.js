@@ -10,4 +10,3 @@ function solve(number) {
     console.log(totalSum);
 
 }
-
