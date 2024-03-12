@@ -13,4 +13,13 @@ function solve(text) {
 
 solve('The symbol # is known #variously in English-speaking #regions as the #number sign')
 
+function findSpecialWOrds(inputText) {
+    const pattern = /#([a-zA-Z]+)/g;
 
+    const matches = inputText.matchAll(pattern);
+    for (const match of matches) {
+        console.log(match);
+    }
+}
+
+findSpecialWOrds('The symbol # is known #variously in English-speaking #regions as the #number sign')

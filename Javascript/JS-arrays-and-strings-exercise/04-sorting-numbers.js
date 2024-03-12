@@ -6,12 +6,16 @@ function solve(numbers) {
     while (numbers.length != 0) {
         let minNumber = numbers.shift();
         let maxNumber = numbers.pop();
-        result.push(minNumber, maxNumber);
+        result.push(minNumber);
+
+        if (maxNumber) {
+            result.push(maxNumber)
+        }
     }
 
     return result
 
 }
+console.log(solve([1, 65, 3, 52, 48, 63, 31, -3]));
 
-solve([1, 65, 3, 52, 48, 63, 31, -3])
 

@@ -7,7 +7,7 @@ function solve(words, text) {
         textArr.splice(templateSpot, 1, word)
     }
 
-    console.log(textArr.join(' '));
+    console.log(textArr.join(' '));  
 
 }
 
