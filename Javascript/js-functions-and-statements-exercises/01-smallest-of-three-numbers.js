@@ -5,4 +5,4 @@ function findSmallest(num1, num2, num3) {
 
 }
 
-console.log(findSmallest(2, 2, 2));
+console.log(findSmallest(7, 25, 1));

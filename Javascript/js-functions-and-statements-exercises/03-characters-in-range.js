@@ -1,7 +1,7 @@
-function solve(char1, char2) {
+function solve(firstChar, secondChar) {
     let result = [];
-    const num1 = char1.charCodeAt();
-    const num2 = char2.charCodeAt();
+    const num1 = firstChar.charCodeAt();
+    const num2 = secondChar.charCodeAt();
 
     const startIndex = num1 < num2 ? num1 : num2;
     const endIndex = startIndex === num1 ? num2 : num1;
