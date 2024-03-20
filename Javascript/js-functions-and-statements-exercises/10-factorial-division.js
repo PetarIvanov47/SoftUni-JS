@@ -9,7 +9,7 @@ function solve(num1, num2) {
     }
 
     return (factorial(num1) / factorial(num2)).toFixed(2)
-
+ 
 }
 
 console.log(solve(6, 2));
