@@ -1,4 +1,4 @@
-function removeCarToParking(carNumber, parkingLot) {
+function removeCarFromParking(carNumber, parkingLot) {
 
     if (parkingLot.includes(carNumber)) {
         const numberIndex = parkingLot.indexOf(carNumber);
@@ -25,7 +25,7 @@ function solve(input) {
                 break;
 
             case ('OUT'):
-                removeCarToParking(carNumber, parkingLot)
+                removeCarFromParking(carNumber, parkingLot)
                 break;
         }
 

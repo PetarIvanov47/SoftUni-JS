@@ -1,6 +1,5 @@
 function solve(input) {
     
-
     function formatData(num) {
         return Number(num).toFixed(2);
     }
@@ -15,20 +14,20 @@ function solve(input) {
         }
     }
 
-    // input
-    //     .map(townData => townData.split(' | '))
-    //     .forEach(([town, latitude, longitude]) => console.log(createTownObject(town, latitude, longitude)))
+    input
+        .map(townData => townData.split(' | '))
+        .forEach(([town, latitude, longitude]) => console.log(createTownObject(town, latitude, longitude)))
 
-    const towns = [];
+    // const towns = [];
 
-    for (let line of input) {
-        const [townName, latitude, longitude] = line.split(' | ');
+    // for (let line of input) {
+    //     const [townName, latitude, longitude] = line.split(' | ');
 
-        const town = createTownObject(townName, latitude, longitude);
-        towns.push(town);
-    }
+    //     const town = createTownObject(townName, latitude, longitude);
+    //     towns.push(town);
+    // }
 
-    towns.forEach(town => console.log(town))
+    // towns.forEach(town => console.log(town))
 
 }
 

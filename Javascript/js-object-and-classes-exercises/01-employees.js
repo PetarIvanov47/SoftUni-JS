@@ -16,9 +16,10 @@ function solve(names) {
     //     .map(name => new Employee(name))
     //     .forEach(employee => employee.printEmployee())
 
-    // const employees = {};
 
+    // const employees = {};
     // names.forEach(name => employees[name] = name.length);
+    
     
     const employees = names.reduce((employee, name) => {
         const number = name.length;

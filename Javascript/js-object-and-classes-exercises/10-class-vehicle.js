@@ -10,7 +10,7 @@ class Vehicle {
     drive(fuel){
         this.fuel -= fuel;
     }
-
+ 
 }
 
 

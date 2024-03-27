@@ -1,6 +1,7 @@
 function solve(currentStock, orderedStock) {
     const storeProducts = {};
     const allProducts = currentStock.concat(orderedStock);
+    // const allProducts = [...currentStock, ...orderedStock];
 
 
     for (let i = 0; i < allProducts.length; i += 2) {
