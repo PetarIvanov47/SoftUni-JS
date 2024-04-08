@@ -3,16 +3,18 @@ function create(words) {
 
 	words
 		.forEach(text => {
-			const containerElement = document.createElement('div');
-			containerElement.addEventListener('click', () => {
-				containerElement.querySelector('p').style.display = 'block';
-			});
-
 			const paragraphElement = document.createElement('p');
 			paragraphElement.textContent = text;
 			paragraphElement.style.display = 'none';
-			containerElement.appendChild(paragraphElement);
 
+			const containerElement = document.createElement('div');
+			containerElement.appendChild(paragraphElement);
 			contentElement.appendChild(containerElement);
-		})
+
+
+			containerElement.addEventListener('click', () => {
+				paragraphElement.style.display = 'block';
+			});
+
+		});
 }

@@ -34,21 +34,19 @@ function solve() {
         return trElement
     }
 
+    const inputElement = document.querySelector('#exercise textarea:first-of-type');
+    const outputElement = document.querySelector('#exercise textarea:last-of-type');
+
+    const generateButton = document.querySelector('#exercise button:first-of-type');
+    const buyButton = document.querySelector('#exercise button:last-of-type');
+
+    const tbodyElement = document.querySelector('table tbody');
+
     const shoppingCart = {
         furnitures: [],
         totalPrice: 0,
         totalFactor: 0,
     };
-
-    const textAreaElements = document.querySelectorAll('textarea');
-    const inputElement = textAreaElements[0];
-    const outputElement = textAreaElements[1];
-
-    const buttonsElements = document.querySelectorAll('button');
-    const generateButton = buttonsElements[0];
-    const buyButton = buttonsElements[1];
-
-    const tbodyElement = document.querySelector('table tbody');
 
     generateButton.addEventListener('click', () => {
         const furnitureList = JSON.parse(inputElement.value);
@@ -76,9 +74,10 @@ function solve() {
             });
 
         const averageFactor = (shoppingCart.totalFactor / shoppingCart.furnitures.length);
-        const result = `Bought furniture: ${shoppingCart.furnitures.join(', ')}\nTotal price: ${shoppingCart.totalPrice.toFixed(2)}\nAverage decoration factor: ${averageFactor}`;
 
-        outputElement.value = result;
+        outputElement.value += `Bought furniture: ${shoppingCart.furnitures.join(', ')}\n`;
+        outputElement.value += `Total price: ${shoppingCart.totalPrice.toFixed(2)}\n`;
+        outputElement.value += `Average decoration factor: ${averageFactor}`;
 
     });
 
