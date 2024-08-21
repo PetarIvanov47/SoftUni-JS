@@ -19,7 +19,7 @@ function App() {
                     <Routes>
                         <Route path="/" element={<WelcomeWorld />}/>
                         <Route path="/createpage" element={<CreatePage />}/>
-                        <Route path="/details" element={GameDetails} />
+                        <Route path="/details/:gameId" element={<GameDetails />} />
                     </Routes>
                     
                     

@@ -38,7 +38,7 @@ export default function WelcomeWorld() {
                             <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
                         </div>
                         <div className="data-buttons">
-                            <a href="#" className="btn details-btn">Details</a>
+                            <a href={`details/${game._id}`} className="btn details-btn">Details</a>
                         </div>
                     </div>)
 
