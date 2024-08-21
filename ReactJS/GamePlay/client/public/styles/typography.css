@@ -62,3 +62,7 @@ blockquote>cite {
     margin: 0.5em 2em;
     font-weight: bold;
 }
+
+#create-page.closeForm {
+    color: white;
+}
