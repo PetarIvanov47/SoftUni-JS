@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import {useParams} from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 
 
 export default function GameDetails() {
@@ -12,8 +12,8 @@ export default function GameDetails() {
                 const response = await fetch(`http://localhost:3030/jsonstore/gamePlay/games/${gameId}`);
                 const result = await response.json();
                 setGame(result);
-                
-            } catch (error) {   
+
+            } catch (error) {
                 console.log(error.message);
             }
         })();
@@ -51,7 +51,12 @@ export default function GameDetails() {
 
                 {/* <!-- Edit/Delete buttons ( Only for creator of this game )  --> */}
                 <div className="buttons">
-                    <a href="#" className="button">Edit</a>
+                    <Link to={`/editPage/${game._id}`}
+                        className="button"
+                        state={{ game }}
+                    >
+                        Edit
+                    </Link>
                     <a href="#" className="button">Delete</a>
                 </div>
             </div>

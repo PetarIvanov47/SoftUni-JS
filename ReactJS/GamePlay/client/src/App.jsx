@@ -11,18 +11,20 @@ function App() {
 
     return (
         <>
-            <div id="box"> 
+            <div id="box">
 
                 <Header />
 
                 <main id="main-content">
                     <Routes>
-                        <Route path="/" element={<WelcomeWorld />}/>
-                        <Route path="/createpage" element={<CreatePage />}/>
+                        <Route path="/" element={<WelcomeWorld />} />
+                        <Route path="/createPage" element={<CreatePage />} />
                         <Route path="/details/:gameId" element={<GameDetails />} />
+                        <Route path="/catalogPage" element={<CatalogPage />} />
+                        <Route path="/editPage/:gameId" element={<EditPage />} />
                     </Routes>
-                    
-                    
+
+
                     {/* <LoginPage />
 
                     <RegisterPage />

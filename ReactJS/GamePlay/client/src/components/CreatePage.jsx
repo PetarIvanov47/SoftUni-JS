@@ -24,8 +24,6 @@ export default function CreatePage() {
                 body: JSON.stringify(formValues)
             });
 
-            console.log(response.status);
-
         } catch (error) {
             console.log(error.message);
             

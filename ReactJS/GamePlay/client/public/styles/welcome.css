@@ -70,19 +70,28 @@
     padding: 55px;
     height: auto;
     width: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+#home-page h1{
+    flex: 0 0 100%;
 }
 
 .game {
     box-shadow: 0px 0px 30px 0px;
-    margin-top: 20px;
     padding: 50px;
-    margin-left: 50px;
     background-position: right 35% bottom 45%;
     box-sizing: border-box;
     border-radius: 15px;
-    float: left;
     height: auto;
     color: rgb(204, 144, 131);
+    flex: 0 0 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 
 .image-wrap {
@@ -124,6 +133,7 @@
     unicode-bidi: bidi-override;
     text-align: center;
     direction: rtl;
+    margin-top: 1em
 }
 
 .rating span {
@@ -150,6 +160,7 @@
     font-size: 1.4rem;
     padding-top: 20px;
     text-align: center;
+    margin-top: auto;
 }
 
 .btn.details-btn:hover {
@@ -163,6 +174,7 @@
     font-weight: 700;
     font-size: 84px;
     font-family: "Agency FB";
+    width: 100%;
 }
 
 .no-articles {

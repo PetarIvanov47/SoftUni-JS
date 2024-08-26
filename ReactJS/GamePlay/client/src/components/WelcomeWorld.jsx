@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom";
 
 export default function WelcomeWorld() {
     const [latestGames, setLatestGames] = useState([]);
@@ -26,6 +27,7 @@ export default function WelcomeWorld() {
             <img src="./images/four_slider_img01.png" alt="hero" />
 
             <div id="home-page">
+
                 <h1>Latest Games</h1>
 
                 {latestGames.length === 0 ? (<p className="no-articles">No games yet</p>) : (latestGames.map(game => {
@@ -38,11 +40,15 @@ export default function WelcomeWorld() {
                             <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
                         </div>
                         <div className="data-buttons">
-                            <a href={`details/${game._id}`} className="btn details-btn">Details</a>
+                            <Link to={`details/${game._id}`} className="btn details-btn">Details</Link>
                         </div>
                     </div>)
 
                 }))}
+
+
+
+
                 {/* <!-- Display div: with information about every game (if any) --> */}
                 {/* <div className="game">
                     <div className="image-wrap">
