@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom"
+import { Link, useNavigate, useParams } from "react-router-dom"
+import CreateComment from "./CreateComment";
+import GameComments from "./GameComments";
 
 
 export default function GameDetails() {
     const [game, setGame] = useState({});
     const { gameId } = useParams();
+    const navigate = useNavigate();
 
     useEffect(() => {
         (async function getGameDetails() {
@@ -18,6 +21,19 @@ export default function GameDetails() {
             }
         })();
     }, []);
+
+    async function deleteButtonHandler() {
+        try {
+            const response = await fetch(`http://localhost:3030/jsonstore/gamePlay/games/${gameId}`, {
+                method: 'DELETE',
+            })
+            
+            navigate('/');
+        } catch (error) {
+            console.log(error.message());
+        }
+    }
+    
 
     return (
         <section id="game-details">
@@ -33,23 +49,10 @@ export default function GameDetails() {
 
                 <p className="text">{game.summary}</p>
 
-                {/* <!-- Bonus ( for Guests and Users ) --> */}
-                <div className="details-comments">
-                    <h2>Comments:</h2>
-                    <ul>
-                        {/* <!-- list all comments for current game (If any) --> */}
-                        <li className="comment">
-                            <p>Content: I rate this one quite highly.</p>
-                        </li>
-                        <li className="comment">
-                            <p>Content: The best game.</p>
-                        </li>
-                    </ul>
-                    {/* <!-- Display paragraph: If there are no games in the database --> */}
-                    <p className="no-comment">No comments.</p>
-                </div>
+                
+                <GameComments gameId={gameId}/>
 
-                {/* <!-- Edit/Delete buttons ( Only for creator of this game )  --> */}
+                
                 <div className="buttons">
                     <Link to={`/editPage/${game._id}`}
                         className="button"
@@ -57,20 +60,16 @@ export default function GameDetails() {
                     >
                         Edit
                     </Link>
-                    <a href="#" className="button">Delete</a>
+                    <Link
+                        className="button"
+                        onClick={deleteButtonHandler}
+                    >
+                        Delete
+                    </Link>
                 </div>
             </div>
 
-            {/* <!-- Bonus --> */}
-            {/* <!-- Add Comment ( Only for logged-in users, which is not creators of the current game ) --> */}
-            <article className="create-comment">
-                <label>Add new comment:</label>
-                <form className="form">
-                    <textarea name="comment" placeholder="Comment......"></textarea>
-                    <input className="btn submit" type="submit" value="Add Comment" />
-                </form>
-            </article>
-
+            <CreateComment gameId={gameId}/>
         </section>
     )
 }
