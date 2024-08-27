@@ -1,6 +1,21 @@
 {
     "games": {
-        
+        "ebbd46d5-51b0-4012-a72b-97cb24e0b035": {
+            "title": "Warcraft III (Frozen Throne)",
+            "category": "Strategy",
+            "maxLevel": "50",
+            "imageUrl": "https://upload.wikimedia.org/wikipedia/en/8/87/Warcraftiii-frozen-throne-boxcover.jpg",
+            "summary": "Warcraft III: The Frozen Throne is the expansion pack for Warcraft III: Reign of Chaos, a real-time strategy video game by Blizzard Entertainment. It was released worldwide on July 1, 2003, for Microsoft Windows and Mac OS X. The Frozen Throne builds upon the story of Reign of Chaos and depicts the events after the main game's conclusion. The single-player unfolds from the perspective of two new protagonists—the Night Elf warden Maiev Shadowsong and the Blood Elf prince Kael'Thas—as well as returning protagonist Arthas Menethil",
+            "_id": "ebbd46d5-51b0-4012-a72b-97cb24e0b035"
+        },
+        "572401fb-3841-4e1a-a66a-c31ed4f91245": {
+            "title": "World Of Warcraft",
+            "category": "MMOR",
+            "maxLevel": "62",
+            "imageUrl": "https://m.media-amazon.com/images/I/81feWhChfIL.jpg",
+            "summary": "World of Warcraft (WoW) is a massively multiplayer online role-playing game (MMORPG) released in 2004 by Blizzard Entertainment. Set in the Warcraft fantasy universe, World of Warcraft takes place within the world of Azeroth, approximately four years after the events of the previous game in the series, Warcraft III: The Frozen Throne.[3] The game was announced in 2001, and was released for the 10th anniversary of the Warcraft franchise on November 23, 2004",
+            "_id": "572401fb-3841-4e1a-a66a-c31ed4f91245"
+        }
     },
     "comments": {
         

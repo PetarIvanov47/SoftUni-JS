@@ -8,6 +8,7 @@ export default function GameDetails() {
     const [game, setGame] = useState({});
     const { gameId } = useParams();
     const navigate = useNavigate();
+    const [refreshComments, setRefreshComments] = useState(false);
 
     useEffect(() => {
         (async function getGameDetails() {
@@ -20,20 +21,23 @@ export default function GameDetails() {
                 console.log(error.message);
             }
         })();
-    }, []);
+    }, [gameId]);
 
     async function deleteButtonHandler() {
         try {
             const response = await fetch(`http://localhost:3030/jsonstore/gamePlay/games/${gameId}`, {
                 method: 'DELETE',
             })
-            
+
             navigate('/');
         } catch (error) {
             console.log(error.message());
         }
     }
-    
+
+    function handleCommentCreated() {
+        setRefreshComments(prev => !prev);
+    }
 
     return (
         <section id="game-details">
@@ -49,10 +53,10 @@ export default function GameDetails() {
 
                 <p className="text">{game.summary}</p>
 
-                
-                <GameComments gameId={gameId}/>
 
-                
+                <GameComments gameId={gameId} refreshComments={refreshComments} />
+
+
                 <div className="buttons">
                     <Link to={`/editPage/${game._id}`}
                         className="button"
@@ -69,7 +73,7 @@ export default function GameDetails() {
                 </div>
             </div>
 
-            <CreateComment gameId={gameId}/>
+            <CreateComment gameId={gameId} onCommentCreated={handleCommentCreated} />
         </section>
     )
 }

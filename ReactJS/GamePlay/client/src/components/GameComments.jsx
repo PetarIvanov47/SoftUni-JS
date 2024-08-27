@@ -1,37 +1,40 @@
 import { useEffect, useState } from "react"
 
-export default function GameComments({ gameId }) {
+export default function GameComments({
+    gameId,
+    refreshComments,
+}) {
     const [comments, setComments] = useState([]);
-    const [noComments, setNoComments] = useState(true)
 
     useEffect(() => {
         (async function getComments() {
             try {
                 const response = await fetch(`http://localhost:3030/jsonstore/gamePlay/comments`);
-                
-                if (response.statusText === "No Content") {
-                    setNoComments(true);
-                } else {
-                    const data = await response.json();
 
-                    setComments(Object
-                        .values(data)
-                        .filter(comment => comment.gameId == gameId)
-                    );
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
                 }
 
+                const data = await response.json();
+                
+                setComments(Object
+                    .values(data)
+                    .filter(comment => comment.gameId === gameId)
+                    .slice(-6)
+                    .reverse()
+                );
+                
             } catch (error) {
-                console.log(error.message)
+                console.log(error.message);
             }
         })();
-    }, []);
-    
+    }, [refreshComments]);
 
     return (
         <div className="details-comments">
             <h2>Comments:</h2>
 
-            {noComments ? (<p className="no-comment">No comments.</p>) : (
+            {comments.length === 0 ? (<p className="no-comment">No comments.</p>) : (
                 <ul>
                     {comments.map(comment => {
                         return (
@@ -42,11 +45,6 @@ export default function GameComments({ gameId }) {
                     })}
                 </ul>
             )}
-
-
-
-
-
         </div>
     )
 }

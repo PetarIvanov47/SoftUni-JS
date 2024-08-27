@@ -1,7 +1,10 @@
 import { useState } from "react"
 import { useParams } from "react-router-dom";
 
-export default function CreateComment({ gameId }) {
+export default function CreateComment({
+    gameId,
+    onCommentCreated
+}) {
 
     const [gameComment, setGameComment] = useState({
         commentText: '',
@@ -20,6 +23,17 @@ export default function CreateComment({ gameId }) {
                 body: JSON.stringify(gameComment)
             });
 
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+
+            setGameComment({
+                commentText: '',
+                gameId: gameId,
+            })
+
+            onCommentCreated();
+            
         } catch (error) {
             console.log(error.message);
 
@@ -44,8 +58,14 @@ export default function CreateComment({ gameId }) {
                     placeholder="Comment......"
                     value={gameComment.commentText}
                     onChange={changeHandler}
+                    required
                 />
-                <input className="btn submit" type="submit" value="Add Comment" />
+                <input
+                    className="btn submit"
+                    type="submit"
+                    value="Add Comment"
+                    disabled={!gameComment.commentText.trim()}
+                />
             </form>
         </article>
 
