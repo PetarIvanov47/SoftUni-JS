@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom";
 
-export default function EditPage() {
+export default function EditGame() {
     const location = useLocation();
     const { game } = location.state || {};
     const navigate = useNavigate();

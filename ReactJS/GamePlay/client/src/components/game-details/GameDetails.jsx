@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom"
-import CreateComment from "./CreateComment";
-import GameComments from "./GameComments";
+import CreateComment from "./comments/CreateComment";
+import GameComments from "./comments/GameComments";
 
 
 export default function GameDetails() {
@@ -58,7 +58,7 @@ export default function GameDetails() {
 
 
                 <div className="buttons">
-                    <Link to={`/editPage/${game._id}`}
+                    <Link to={`/game/edit/${game._id}`}
                         className="button"
                         state={{ game }}
                     >

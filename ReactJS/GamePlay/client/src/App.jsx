@@ -1,11 +1,11 @@
-import CatalogPage from "./components/CatalogPage"
-import CreatePage from "./components/CreatePage"
-import EditPage from "./components/EditPage"
-import GameDetails from "./components/GameDetails"
-import Header from "./components/Header"
-import LoginPage from "./components/LoginPage"
-import RegisterPage from "./components/RegisterPage"
-import WelcomeWorld from "./components/WelcomeWorld"
+import CatalogPage from "./components/catalog-page/CatalogPage"
+import CreateGame from "./components/game-create/CreateGame"
+import EditGame from "./components/game-edit/EditGame"
+import GameDetails from "./components/game-details/GameDetails"
+import Header from "./components/header/Header"
+import LoginPage from "./components/authentication/LoginPage"
+import RegisterPage from "./components/authentication/RegisterPage"
+import Home from "./components/home/Home"
 import { Routes, Route } from "react-router-dom"
 function App() {
 
@@ -17,11 +17,11 @@ function App() {
 
                 <main id="main-content">
                     <Routes>
-                        <Route path="/" element={<WelcomeWorld />} />
-                        <Route path="/createPage" element={<CreatePage />} />
+                        <Route path="/" element={<Home />} />
+                        <Route path="/game/create" element={<CreateGame />} />
                         <Route path="/details/:gameId" element={<GameDetails />} />
-                        <Route path="/catalogPage" element={<CatalogPage />} />
-                        <Route path="/editPage/:gameId" element={<EditPage />} />
+                        <Route path="/games" element={<CatalogPage />} />
+                        <Route path="/game/edit/:gameId" element={<EditGame />} />
                     </Routes>
 
 
