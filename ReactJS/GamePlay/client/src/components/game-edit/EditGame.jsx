@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom";
 
+import gameAPI from "../../api/game-api";
+
 export default function EditGame() {
     const location = useLocation();
     const { game } = location.state || {};
@@ -19,16 +21,8 @@ export default function EditGame() {
     const formSubmitHandler = async (e) => {
         e.preventDefault();
 
-
         try {
-            const response = await fetch(`http://localhost:3030/jsonstore/gamePlay/games/${gameData._id}`, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json',
-                
-                },
-                body: JSON.stringify(gameData),
-            });
+            await gameAPI.editGame(gameData._id, gameData);
 
             navigate(`/details/${game._id}`);
 
@@ -91,7 +85,6 @@ export default function EditGame() {
                         value={gameData.summary}
                         onChange={changeHandler}
                     />
-
 
                     <input className="btn submit" type="submit" value="Edit Game" />
 

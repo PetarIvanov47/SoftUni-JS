@@ -1,12 +1,13 @@
 import { useState } from "react"
-import { useParams } from "react-router-dom";
+
+import commentAPI from "../../../api/comments-api";
 
 export default function CreateComment({
     gameId,
     onCommentCreated
 }) {
 
-    const [gameComment, setGameComment] = useState({
+    const [newComment, setNewComment] = useState({
         commentText: '',
         gameId: gameId,
     });
@@ -15,19 +16,9 @@ export default function CreateComment({
         e.preventDefault();
 
         try {
-            const response = await fetch("http://localhost:3030/jsonstore/gamePlay/comments", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(gameComment)
-            });
+            await commentAPI.createComment(newComment);
 
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-
-            setGameComment({
+            setNewComment({
                 commentText: '',
                 gameId: gameId,
             })
@@ -36,13 +27,12 @@ export default function CreateComment({
             
         } catch (error) {
             console.log(error.message);
-
         };
 
     };
 
     const changeHandler = (e) => {
-        setGameComment({
+        setNewComment({
             commentText: e.target.value,
             gameId: gameId
         });
@@ -56,7 +46,7 @@ export default function CreateComment({
                 <textarea
                     name="comment"
                     placeholder="Comment......"
-                    value={gameComment.commentText}
+                    value={newComment.commentText}
                     onChange={changeHandler}
                     required
                 />
@@ -64,7 +54,7 @@ export default function CreateComment({
                     className="btn submit"
                     type="submit"
                     value="Add Comment"
-                    disabled={!gameComment.commentText.trim()}
+                    disabled={!newComment.commentText.trim()}
                 />
             </form>
         </article>

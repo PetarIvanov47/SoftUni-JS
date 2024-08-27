@@ -1,6 +1,9 @@
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom";
 
+import * as gameAPI from "../../api/game-api";
+
+
 export default function CreateGame() {
     const [formValues, setFormValues] = useState({
         title: "",
@@ -16,13 +19,7 @@ export default function CreateGame() {
         e.preventDefault();
         
         try {
-            const response = await fetch("http://localhost:3030/jsonstore/gamePlay/games", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(formValues)
-            });
+            gameAPI.createGame(formValues);
 
         } catch (error) {
             console.log(error.message);

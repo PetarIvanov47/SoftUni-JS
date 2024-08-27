@@ -1,11 +1,11 @@
 export default async function request(method, url, data) {
     const options = {};
 
-    if(method !== 'GET'){
+    if (method !== 'GET') {
         options.method = method;
     };
 
-    if(data){
+    if (data) {
         options.headers = {
             "Content-Type": "application/json"
         };
@@ -14,9 +14,10 @@ export default async function request(method, url, data) {
     };
 
     const response = await fetch(url, options);
-    const result = await response.json();
-
+    const result = response.json();
+    
     return result
+
 };
 
 export const get = request.bind(null, "GET");

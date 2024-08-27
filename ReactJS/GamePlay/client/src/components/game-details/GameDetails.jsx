@@ -3,6 +3,7 @@ import { Link, useNavigate, useParams } from "react-router-dom"
 import CreateComment from "./comments/CreateComment";
 import GameComments from "./comments/GameComments";
 
+import gameAPI from "../../api/game-api";
 
 export default function GameDetails() {
     const [game, setGame] = useState({});
@@ -13,8 +14,7 @@ export default function GameDetails() {
     useEffect(() => {
         (async function getGameDetails() {
             try {
-                const response = await fetch(`http://localhost:3030/jsonstore/gamePlay/games/${gameId}`);
-                const result = await response.json();
+                const result = await gameAPI.getGameByID(gameId);
                 setGame(result);
 
             } catch (error) {
@@ -25,10 +25,8 @@ export default function GameDetails() {
 
     async function deleteButtonHandler() {
         try {
-            const response = await fetch(`http://localhost:3030/jsonstore/gamePlay/games/${gameId}`, {
-                method: 'DELETE',
-            })
-
+            await gameAPI.deleteGame(gameId);
+        
             navigate('/');
         } catch (error) {
             console.log(error.message());
@@ -53,9 +51,7 @@ export default function GameDetails() {
 
                 <p className="text">{game.summary}</p>
 
-
                 <GameComments gameId={gameId} refreshComments={refreshComments} />
-
 
                 <div className="buttons">
                     <Link to={`/game/edit/${game._id}`}

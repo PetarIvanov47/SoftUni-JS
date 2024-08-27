@@ -1,29 +1,27 @@
 import { useEffect, useState } from "react"
 
+import commentAPI from "../../../api/comments-api";
+
+import GameCommentItem from "./GameCommentItem";
+
 export default function GameComments({
     gameId,
     refreshComments,
 }) {
-    const [comments, setComments] = useState([]);
+    const [allComments, setAllComments] = useState([]);
 
     useEffect(() => {
         (async function getComments() {
             try {
-                const response = await fetch(`http://localhost:3030/jsonstore/gamePlay/comments`);
+                const result = await commentAPI.allComments();
 
-                if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
-                }
-
-                const data = await response.json();
-                
-                setComments(Object
-                    .values(data)
+                setAllComments(Object
+                    .values(result)
                     .filter(comment => comment.gameId === gameId)
                     .slice(-6)
                     .reverse()
                 );
-                
+
             } catch (error) {
                 console.log(error.message);
             }
@@ -34,17 +32,12 @@ export default function GameComments({
         <div className="details-comments">
             <h2>Comments:</h2>
 
-            {comments.length === 0 ? (<p className="no-comment">No comments.</p>) : (
-                <ul>
-                    {comments.map(comment => {
-                        return (
-                            <li className="comment" key={comment._id}>
-                                <p>{comment.commentText}</p>
-                            </li>
-                        )
-                    })}
+            {allComments.length === 0
+                ? <p className="no-comment">No comments.</p>
+                : <ul>
+                    {allComments.map(comment => <GameCommentItem key={comment._id} text={comment.commentText} />)}
                 </ul>
-            )}
+            }
         </div>
     )
 }
