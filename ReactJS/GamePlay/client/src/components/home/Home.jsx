@@ -2,21 +2,15 @@ import { useEffect, useState } from "react"
 
 import gameAPI from "../../api/game-api";
 import LatestGameItem from "./latestGameItem";
+import { useFetch } from "../../hooks/useFetch";
+import Spinner from "../spinner/Spinner";
 
 export default function Home() {
-    const [latestGames, setLatestGames] = useState([]);
 
-    useEffect(() => {
-        (async function getLatestGames() {
-            try {
-                const result = await gameAPI.getLatestGames();
-
-                setLatestGames(result);
-            } catch (error) {
-                console.log(error.message);
-            }
-        })();
-    }, []);
+    const {
+        data: latestGames,
+        isFetching,
+    } = useFetch(gameAPI.getLatestGames);
 
     return (
         <section id="welcome-world">
@@ -29,10 +23,14 @@ export default function Home() {
 
             <div id="home-page">
                 <h1>Latest Games</h1>
-                {latestGames.length === 0
-                    ? <p className="no-articles">No games yet</p>
-                    : latestGames.map(game => <LatestGameItem key={game._id} {...game} />)
+
+                {isFetching
+                    ? <Spinner />
+                    : latestGames.length > 0
+                        ? latestGames.map(game => <LatestGameItem key={game._id} {...game} />)
+                        : <p className="no-articles">No games yet</p>
                 }
+
             </div>
         </section>
 

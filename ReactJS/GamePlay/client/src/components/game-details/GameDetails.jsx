@@ -1,32 +1,24 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom"
 import CreateComment from "./comments/CreateComment";
 import GameComments from "./comments/GameComments";
 
 import gameAPI from "../../api/game-api";
+import { useFetch } from "../../hooks/useFetch";
 
 export default function GameDetails() {
-    const [game, setGame] = useState({});
     const { gameId } = useParams();
     const navigate = useNavigate();
     const [refreshComments, setRefreshComments] = useState(false);
 
-    useEffect(() => {
-        (async function getGameDetails() {
-            try {
-                const result = await gameAPI.getGameByID(gameId);
-                setGame(result);
-
-            } catch (error) {
-                console.log(error.message);
-            }
-        })();
-    }, [gameId]);
+    const {
+        data: game
+    } = useFetch(gameAPI.getGameByID, {}, [gameId], gameId);
 
     async function deleteButtonHandler() {
         try {
             await gameAPI.deleteGame(gameId);
-        
+
             navigate('/');
         } catch (error) {
             console.log(error.message());
