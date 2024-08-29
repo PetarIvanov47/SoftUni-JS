@@ -34,6 +34,8 @@ export function useFetch(url, initialData = [], dependencies = []) {
 
         })();
 
+        console.log("Fetching");
+
         return () => abortController.abort();
 
     }, [...dependencies, toggleRefresh, url]);

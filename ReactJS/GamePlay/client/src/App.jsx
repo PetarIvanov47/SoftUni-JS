@@ -6,17 +6,38 @@ import Header from "./components/header/Header"
 import LoginPage from "./components/authentication/LoginPage"
 import RegisterPage from "./components/authentication/RegisterPage"
 import Home from "./components/home/Home"
-import { Routes, Route } from "react-router-dom"
+import { Routes, Route, useNavigate } from "react-router-dom"
 import { useState } from "react"
 import ProfileContext from "./components/context/profileContext"
+import { useFetch } from "./hooks/useFetch"
+import urls from "./api/urls"
 
 
 function App() {
     const [userProfile, setUserProfile] = useState({});
     const [isLogedIn, setIsLogedIn] = useState(false);
+    const navigate = useNavigate();
+
+    const {
+        data: profiles,
+        isFetching
+    } = useFetch(urls.profilesUrl, {});
+
+    const login = ({ username, password}) => {
+    
+        const profile = Object
+        .values(profiles)
+        .filter(profile => profile.username === username && profile.password === password);
+
+        if(profile.length === 1){
+            navigate("/");
+            setUserProfile(profile);
+        };
+
+    };
 
     return (
-        <ProfileContext.Provider value={{ profile: userProfile, isLogedIn }}>
+        <ProfileContext.Provider value={{ profile: userProfile, isLogedIn, login }}>
             <div id="box">
 
                 <Header />
@@ -37,4 +58,6 @@ function App() {
     )
 }
 
+
 export default App
+

@@ -16,7 +16,7 @@ export default function RegisterPage() {
         try {
             const { confPass, ...profileData } = userData;
             const newProfile = await profilesAPI.createProfile(profileData);
-            navigate("/");
+            navigate("/login");
 
         } catch (error) {
             console.log(error.message);
@@ -41,8 +41,10 @@ export default function RegisterPage() {
                         type="text"
                         id="username"
                         name="username"
+                        autoComplete="username"
                         value={userData.username}
                         onChange={changeHandler}
+                        required
                     />
 
                     <label htmlFor="email">Email:</label>
@@ -53,15 +55,18 @@ export default function RegisterPage() {
                         placeholder="maria@email.com"
                         value={userData.email}
                         onChange={changeHandler}
+                        required
                     />
 
                     <label htmlFor="password">Password:</label>
                     <input
                         type="password"
                         name="password"
-                        id="register-password"
+                        id="password"
+                        autoComplete="new-password"
                         value={userData.password}
                         onChange={changeHandler}
+                        required
                     />
 
                     <label htmlFor="conformationPass">Confirm Password:</label>
@@ -69,8 +74,10 @@ export default function RegisterPage() {
                         type="password"
                         name="conformationPass"
                         id="conformationPass"
+                        autoComplete="new-conformationPass"
                         value={userData.conformationPass}
                         onChange={changeHandler}
+                        required
                     />
 
                     <input className="btn submit" type="submit" value="Register" />
