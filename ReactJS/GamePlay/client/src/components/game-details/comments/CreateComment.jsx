@@ -1,5 +1,3 @@
-import { useState } from "react"
-
 import commentAPI from "../../../api/comments-api";
 import { useForm } from "../../../hooks/useForm";
 

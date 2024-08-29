@@ -3,24 +3,16 @@ import { useLocation, useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom";
 
 import gameAPI from "../../api/game-api";
+import { useForm } from "../../hooks/useForm";
 
 export default function EditGame() {
     const location = useLocation();
     const { game } = location.state || {};
     const navigate = useNavigate();
+    const initialData = { ...game };
 
-    const [gameData, setGameData] = useState({
-        title: game.title,
-        category: game.category,
-        maxLevel: game.maxLevel,
-        imageUrl: game.imageUrl,
-        summary: game.summary,
-        _id: game._id,
-    });
 
     const formSubmitHandler = async (e) => {
-        e.preventDefault();
-
         try {
             await gameAPI.editGame(gameData._id, gameData);
 
@@ -32,17 +24,16 @@ export default function EditGame() {
 
     };
 
-    const changeHandler = (e) => {
-        setGameData(oldGameData => ({
-            ...oldGameData,
-            [e.target.name]: e.target.value,
-        }));
-    };
+    const {
+        values: gameData,
+        changeHandler,
+        submitHandler
+    } = useForm(initialData, formSubmitHandler);
 
     return (
         <section id="edit-page" className="auth">
             <Link to="/" className="closeForm">X</Link>
-            <form id="edit" onSubmit={formSubmitHandler}>
+            <form id="edit" onSubmit={submitHandler}>
                 <div className="container">
 
                     <h1>Edit Game</h1>
