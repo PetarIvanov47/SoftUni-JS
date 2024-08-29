@@ -1,13 +1,15 @@
 import GameListItem from "./GameListItem";
 import { useFetch } from "../../hooks/useFetch";
-import gameAPI from "../../api/game-api";
 import Spinner from "../spinner/Spinner";
+import urls from "../../api/urls";
 
 export default function CatalogPage() {
     const {
-        data: allGames,
-        isFetching
-    } = useFetch(gameAPI.allGames);
+        data,
+        isFetching,
+    } = useFetch(urls.gamesUrl, {});
+
+    const allGames = Object.values(data);
 
     return (
         <section id="catalog-page">

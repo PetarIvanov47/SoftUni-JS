@@ -1,16 +1,21 @@
-import { useEffect, useState } from "react"
-
-import gameAPI from "../../api/game-api";
-import LatestGameItem from "./latestGameItem";
 import { useFetch } from "../../hooks/useFetch";
+
+import LatestGameItem from "./latestGameItem";
 import Spinner from "../spinner/Spinner";
+import urls from "../../api/urls";
 
 export default function Home() {
 
     const {
-        data: latestGames,
+        data,
         isFetching,
-    } = useFetch(gameAPI.getLatestGames);
+    } = useFetch(urls.gamesUrl, {});
+
+    const latestGames = Object
+        .values(data)
+        .slice(-3)
+        .reverse();
+
 
     return (
         <section id="welcome-world">

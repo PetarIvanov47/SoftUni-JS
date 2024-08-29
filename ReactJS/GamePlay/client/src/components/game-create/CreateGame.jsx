@@ -1,45 +1,40 @@
-import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom";
 
 import * as gameAPI from "../../api/game-api";
+import { useForm } from "../../hooks/useForm";
 
+const initialValues = {
+    title: "",
+    category: "",
+    maxLevel: "",
+    imageUrl: "",
+    summary: "",
+};
 
 export default function CreateGame() {
-    const [formValues, setFormValues] = useState({
-        title: "",
-        category: "",
-        maxLevel: "",
-        imageUrl: "",
-        summary: "",
-    });
-
     const navigate = useNavigate();
 
     const formSubmitHandler = async (e) => {
-        e.preventDefault();
         
         try {
-            gameAPI.createGame(formValues);
-
+            const newGame = await gameAPI.createGame(formValues);
+            navigate(`/details/${newGame._id}`);
         } catch (error) {
             console.log(error.message);
-            
         };
-
-        navigate("/");
+        
     };
 
-    const changeHandler = (e) => {
-        setFormValues(oldValues => ({
-            ...oldValues,
-            [e.target.name]: e.target.value,
-        }));
-    };
+    const {
+        values: formValues,
+        changeHandler,
+        submitHandler
+    } = useForm(initialValues, formSubmitHandler);
 
     return (
         <section id="create-page" className="auth">
             <Link to="/" className="closeForm">X</Link>
-            <form id="create" onSubmit={formSubmitHandler}>
+            <form id="create" onSubmit={submitHandler}>
                 <div className="container">
 
                     <h1>Create Game</h1>
@@ -98,7 +93,7 @@ export default function CreateGame() {
                     />
 
                     <input className="btn submit" type="submit" value="Create Game" />
-                    
+
                 </div>
             </form>
         </section>

@@ -5,6 +5,7 @@ import GameComments from "./comments/GameComments";
 
 import gameAPI from "../../api/game-api";
 import { useFetch } from "../../hooks/useFetch";
+import urls from "../../api/urls";
 
 export default function GameDetails() {
     const { gameId } = useParams();
@@ -13,7 +14,8 @@ export default function GameDetails() {
 
     const {
         data: game
-    } = useFetch(gameAPI.getGameByID, {}, [gameId], gameId);
+    } = useFetch(`${urls.gamesUrl}/${gameId}`, {}, [gameId]);
+
 
     async function deleteButtonHandler() {
         try {

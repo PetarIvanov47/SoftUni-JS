@@ -1,17 +1,20 @@
-import { useEffect, useState } from "react"
-
-import commentAPI from "../../../api/comments-api";
-
 import GameCommentItem from "./GameCommentItem";
 import { useFetch } from "../../../hooks/useFetch";
+import urls from "../../../api/urls";
 
 export default function GameComments({
     gameId,
     refreshComments,
 }) {
-    const { 
-        data : allGameComments
-     } = useFetch(commentAPI.gameComments, [], [refreshComments], gameId);
+    const {
+        data,
+    } = useFetch(urls.commentsUrl, {}, [refreshComments]);
+
+    const allGameComments = Object
+        .values(data)
+        .filter(comment => comment.gameId === gameId)
+        .slice(-8)
+        .reverse();
 
     return (
         <div className="details-comments">
