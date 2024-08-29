@@ -1,27 +1,21 @@
 import { useState } from "react"
 
 import commentAPI from "../../../api/comments-api";
+import { useForm } from "../../../hooks/useForm";
 
 export default function CreateComment({
     gameId,
     onCommentCreated
 }) {
-
-    const [newComment, setNewComment] = useState({
-        commentText: '',
+    const initialData = {
+        commentText: "",
         gameId: gameId,
-    });
+    };
 
     const formSubmitHandler = async (e) => {
-        e.preventDefault();
-
+        
         try {
-            await commentAPI.createComment(newComment);
-
-            setNewComment({
-                commentText: '',
-                gameId: gameId,
-            })
+            commentAPI.createComment(values);
 
             onCommentCreated();
             
@@ -31,22 +25,21 @@ export default function CreateComment({
 
     };
 
-    const changeHandler = (e) => {
-        setNewComment({
-            commentText: e.target.value,
-            gameId: gameId
-        });
-    };
+    const { 
+        values,
+        changeHandler,
+        submitHandler,
+    } = useForm(initialData, formSubmitHandler);
 
 
     return (
         <article className="create-comment">
             <label>Add new comment:</label>
-            <form className="form" onSubmit={formSubmitHandler}>
+            <form className="form" onSubmit={submitHandler}>
                 <textarea
-                    name="comment"
+                    name="commentText"
                     placeholder="Comment......"
-                    value={newComment.commentText}
+                    value={values.commentText}
                     onChange={changeHandler}
                     required
                 />
@@ -54,7 +47,7 @@ export default function CreateComment({
                     className="btn submit"
                     type="submit"
                     value="Add Comment"
-                    disabled={!newComment.commentText.trim()}
+                    disabled={!values.commentText.trim()}
                 />
             </form>
         </article>

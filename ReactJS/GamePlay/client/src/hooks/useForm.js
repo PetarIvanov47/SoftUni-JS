@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export function useForm(initialValues, submitCallback) {
     const [values, setValues] = useState(initialValues);
@@ -13,7 +13,9 @@ export function useForm(initialValues, submitCallback) {
     const submitHandler = async (e) => {
         e.preventDefault();
 
-        submitCallback(values)
+        submitCallback(values);
+
+        setValues(initialValues);
     };
 
 
