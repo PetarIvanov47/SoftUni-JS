@@ -6,7 +6,7 @@ import Header from "./components/header/Header"
 import LoginPage from "./components/authentication/LoginPage"
 import RegisterPage from "./components/authentication/RegisterPage"
 import Home from "./components/home/Home"
-import { Routes, Route, useNavigate } from "react-router-dom"
+import { Routes, Route, useNavigate, Navigate } from "react-router-dom"
 import { useState } from "react"
 import ProfileContext from "./components/context/profileContext"
 import { useFetch } from "./hooks/useFetch"
@@ -18,26 +18,20 @@ function App() {
     const [isLogedIn, setIsLogedIn] = useState(false);
     const navigate = useNavigate();
 
-    const {
-        data: profiles,
-        isFetching
-    } = useFetch(urls.profilesUrl, {});
+    const login = (profile) => {
+        setUserProfile(profile);
+        setIsLogedIn(true);
+        navigate("/");
+    };
 
-    const login = ({ username, password}) => {
-    
-        const profile = Object
-        .values(profiles)
-        .filter(profile => profile.username === username && profile.password === password);
-
-        if(profile.length === 1){
-            navigate("/");
-            setUserProfile(profile);
-        };
-
+    const logOut = () => {
+        setUserProfile({});
+        setIsLogedIn(false);
+        navigate("/");
     };
 
     return (
-        <ProfileContext.Provider value={{ profile: userProfile, isLogedIn, login }}>
+        <ProfileContext.Provider value={{ profile: userProfile, isLogedIn, login, logOut }}>
             <div id="box">
 
                 <Header />

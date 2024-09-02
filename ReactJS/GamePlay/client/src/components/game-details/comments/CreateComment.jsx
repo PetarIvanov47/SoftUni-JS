@@ -10,20 +10,18 @@ export default function CreateComment({
         gameId: gameId,
     };
 
-    const formSubmitHandler = async (e) => {
-        
+    const formSubmitHandler = () => {
         try {
             commentAPI.createComment(values);
-
             onCommentCreated();
-            
+
         } catch (error) {
             console.log(error.message);
         };
 
     };
 
-    const { 
+    const {
         values,
         changeHandler,
         submitHandler,

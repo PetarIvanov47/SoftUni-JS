@@ -12,10 +12,10 @@ export default function RegisterPage() {
         conformationPass: "",
     };
 
-    const formSubmitHandler = async (e) => {
+    const formSubmitHandler = () => {
         try {
-            const { confPass, ...profileData } = userData;
-            const newProfile = await profilesAPI.createProfile(profileData);
+            const { conformationPass, ...profileData } = userData;
+            profilesAPI.createProfile(profileData);
             navigate("/login");
 
         } catch (error) {
