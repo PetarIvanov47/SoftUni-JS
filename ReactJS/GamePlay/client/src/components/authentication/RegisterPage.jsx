@@ -1,9 +1,19 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "../../hooks/useForm";
 import profilesAPI from "../../api/profiles-api";
+import { useFetch } from "../../hooks/useFetch";
+import urls from "../../api/urls";
+import { useState } from "react";
 
 export default function RegisterPage() {
     const navigate = useNavigate();
+    const [fields, setFields] = useState({
+        username: { isValid: true, message: '' },
+        email: { isValid: true, message: '' },
+        password: { isValid: true, message: '' },
+        confPass: { isValid: true, message: '' },
+    });
+    // const [isValid, setIsValid] = useState(true);
 
     const initialData = {
         username: "",
@@ -12,16 +22,64 @@ export default function RegisterPage() {
         conformationPass: "",
     };
 
-    const formSubmitHandler = () => {
-        try {
-            const { conformationPass, ...profileData } = userData;
-            profilesAPI.createProfile(profileData);
-            navigate("/login");
 
-        } catch (error) {
-            console.log(error.message);
-        }
+
+    const validateUsername = (username, profiles) => {
+        const usernameExists = Object
+            .values(profiles)
+            .some(profile => profile.username === username);
+
+        setFields(prev => ({
+            ...prev, username: {
+                isValid: !usernameExists,
+                message: 'Username already exists'
+            }
+        }))
     };
+
+    const validateEmail = (email) => { };
+    const validatePassword = (password) => { };
+    const validateConformationPassword = (password, conformationPass, profiles) => { };
+
+    const validateRegisterForm = ({ username, email, password, conformationPass }) => {
+
+        validateUsername(username, profiles);
+        validateEmail(email, profiles);
+        validatePassword(password);
+        validateConformationPassword(password, conformationPass, profiles);
+
+        const isValid = Object
+        .values(fields)
+        .some(field => field.isValid);
+        
+        return !isValid
+
+    };
+
+
+    const formSubmitHandler = () => {
+        const formIsValid = validateRegisterForm(userData);
+
+        if (formIsValid) {
+            try {
+                const { conformationPass, ...profileData } = userData;
+                profilesAPI.createProfile(profileData);
+                navigate("/login");
+
+            } catch (error) {
+                console.log(error.message);
+            }
+        } else {
+            console.log('The form is not valid');
+        };
+
+    };
+
+    const {
+        data: profiles,
+        isFetching
+    } = useFetch(urls.profilesUrl, {});
+    console.log(profiles)
 
     const {
         values: userData,
@@ -46,12 +104,15 @@ export default function RegisterPage() {
                         onChange={changeHandler}
                         required
                     />
+                    {!fields.username.isValid && (<p style={{ color: 'red' }}>{fields.username.message}</p>)}
+
 
                     <label htmlFor="email">Email:</label>
                     <input
                         type="email"
                         id="email"
                         name="email"
+                        autoComplete="email"
                         placeholder="maria@email.com"
                         value={userData.email}
                         onChange={changeHandler}
