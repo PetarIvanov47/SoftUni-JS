@@ -1,46 +1,29 @@
 import { Link } from "react-router-dom";
 import { useForm } from "../../hooks/useForm";
-import { useContext, useState } from "react";
-import ProfileContext from "../context/profileContext";
-import urls from "../../api/urls";
-import { useFetch } from "../../hooks/useFetch";
+import { useLogin } from "../../hooks/useAuth";
+
+const initialData = {
+    email: '',
+    password: '',
+};
 
 export default function LoginPage() {
-    const { login } = useContext(ProfileContext);
-    const [isValid, setIsValid] = useState(true);
+    const login = useLogin();
 
-    const initialData = {
-        username: "",
-        password: "",
-    };
-
-    const {
-        data: profiles,
-        isFetching
-    } = useFetch(urls.profilesUrl, {});
-
-    const formSubmitHandler = () => {
-        const { username, password } = values;
-
-        const profile = Object
-            .values(profiles)
-            .filter(profile => profile.username == username && profile.password == password);
-
-        if (profile.length === 1) {
-            login(profile[0]);
-            setIsValid(true);
+    const loginHandler = async ({ email, password }) => {
+        try {
+            await login(email, password);
             
-        } else {
-            setIsValid(false);
-        };
-
+        } catch (error) {
+            console.error(error.message);
+        }
     };
 
     const {
         values,
         changeHandler,
         submitHandler
-    } = useForm(initialData, formSubmitHandler);
+    } = useForm(initialData, loginHandler);
 
 
     return (
@@ -50,14 +33,14 @@ export default function LoginPage() {
                 <div className="container">
                     <div className="brand-logo"></div>
                     <h1>Login</h1>
-                    <label htmlFor="username">Username:</label>
+                    <label htmlFor="email">Email:</label>
                     <input
-                        type="text"
-                        id="username"
-                        name="username"
+                        type="email"
+                        id="email"
+                        name="email"
                         placeholder=""
-                        autoComplete="username"
-                        value={values.username}
+                        autoComplete="email"
+                        value={values.email}
                         onChange={changeHandler}
                         required
                     />
@@ -77,12 +60,12 @@ export default function LoginPage() {
                         className="btn submit"
                         value="Login"
                     />
-                    {!isValid
+                    {/* {!isValid
                         &&
                         (<div style={{ margin: '25px', color: 'red', fontSize: '20px' }}>
                             <p>Incorrect username or password!</p>
                         </div>)
-                    }
+                    } */}
 
                     <p className="field">
                         <span>If you don't have profile click

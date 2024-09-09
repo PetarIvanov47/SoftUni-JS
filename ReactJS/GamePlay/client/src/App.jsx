@@ -3,35 +3,32 @@ import CreateGame from "./components/game-create/CreateGame"
 import EditGame from "./components/game-edit/EditGame"
 import GameDetails from "./components/game-details/GameDetails"
 import Header from "./components/header/Header"
-import LoginPage from "./components/authentication/LoginPage"
-import RegisterPage from "./components/authentication/RegisterPage"
+
 import Home from "./components/home/Home"
 import { Routes, Route, useNavigate, Navigate } from "react-router-dom"
+import RegisterPage from "./components/Register/RegisterPage"
+import LoginPage from "./components/LogIn/LoginPage"
+import { AuthContext } from "./components/context/AuthContext"
 import { useState } from "react"
-import ProfileContext from "./components/context/profileContext"
-import { useFetch } from "./hooks/useFetch"
-import urls from "./api/urls"
-
 
 function App() {
-    const [userProfile, setUserProfile] = useState({});
-    const [isLogedIn, setIsLogedIn] = useState(false);
-    const navigate = useNavigate();
+    const [authState, setAuthState] = useState({});
 
-    const login = (profile) => {
-        setUserProfile(profile);
-        setIsLogedIn(true);
-        navigate("/");
+    const changeAuthState = ({password, ...userData}) => {
+        setAuthState(userData);
     };
 
-    const logOut = () => {
-        setUserProfile({});
-        setIsLogedIn(false);
-        navigate("/");
+    const contextData = {
+        userId: authState._id,
+        email: authState.email,
+        username: authState.username,
+        accessToken: authState.accessToken,
+        isAuthenticated: !!authState.email,
+        changeAuthState,
     };
 
     return (
-        <ProfileContext.Provider value={{ profile: userProfile, isLogedIn, login, logOut }}>
+        <AuthContext.Provider value={ contextData }>
             <div id="box">
 
                 <Header />
@@ -48,7 +45,8 @@ function App() {
                     </Routes>
                 </main>
             </div>
-        </ProfileContext.Provider>
+        </AuthContext.Provider >
+
     )
 }
 

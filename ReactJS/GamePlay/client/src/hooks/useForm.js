@@ -14,13 +14,16 @@ export function useForm(initialValues, submitCallback) {
         e.preventDefault();
 
         submitCallback(values);
+    };
 
-        // setValues(initialValues);
+    const clearFormFields = () => {
+        setValues(initialValues);
     };
 
     return {
         values,
         changeHandler,
-        submitHandler
+        submitHandler,
+        clearFormFields,
     }
 };

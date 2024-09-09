@@ -1,10 +1,10 @@
-import * as request from "./request";
+import * as requester from "./requester";
 
 const BASE_URL = "http://localhost:3030/jsonstore/gamePlay/comments";
 
-export const createComment = (data) => request.post(BASE_URL, data);
+export const createComment = (data) => requester.post(BASE_URL, data);
 
-export const allComments = () => request.get(BASE_URL);
+export const allComments = () => requester.get(BASE_URL);
 
 export async function gameComments(gameId) {
     const data = await allComments();

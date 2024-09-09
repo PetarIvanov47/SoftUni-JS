@@ -1,18 +1,11 @@
-import { useFetch } from "../../hooks/useFetch";
-
 import LatestGameItem from "./latestGameItem";
 import Spinner from "../spinner/Spinner";
-import urls from "../../api/urls";
+import { useGetAllGames } from "../../hooks/useGames";
 
 export default function Home() {
+    const [games] = useGetAllGames();
 
-    const {
-        data,
-        isFetching,
-    } = useFetch(urls.gamesUrl, {});
-
-    const latestGames = Object
-        .values(data)
+    const latestGames = games
         .slice(-3)
         .reverse();
 
@@ -29,11 +22,9 @@ export default function Home() {
             <div id="home-page">
                 <h1>Latest Games</h1>
 
-                {isFetching
-                    ? <Spinner />
-                    : latestGames.length > 0
-                        ? latestGames.map(game => <LatestGameItem key={game._id} {...game} />)
-                        : <p className="no-articles">No games yet</p>
+                {latestGames.length > 0
+                    ? latestGames.map(game => <LatestGameItem key={game._id} {...game} />)
+                    : <p className="no-articles">No games yet</p>
                 }
 
             </div>

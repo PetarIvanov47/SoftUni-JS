@@ -13,6 +13,7 @@ export default function CreateComment({
     const formSubmitHandler = () => {
         try {
             commentAPI.createComment(values);
+            clearFormFields();
             onCommentCreated();
 
         } catch (error) {
@@ -25,6 +26,7 @@ export default function CreateComment({
         values,
         changeHandler,
         submitHandler,
+        clearFormFields
     } = useForm(initialData, formSubmitHandler);
 
 

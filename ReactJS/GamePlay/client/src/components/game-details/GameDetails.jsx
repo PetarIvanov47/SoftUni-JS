@@ -4,17 +4,14 @@ import CreateComment from "./comments/CreateComment";
 import GameComments from "./comments/GameComments";
 
 import gameAPI from "../../api/game-api";
-import { useFetch } from "../../hooks/useFetch";
-import urls from "../../api/urls";
+import { useGetOneGames } from "../../hooks/useGames";
 
 export default function GameDetails() {
     const { gameId } = useParams();
     const navigate = useNavigate();
     const [refreshComments, setRefreshComments] = useState(false);
 
-    const {
-        data: game
-    } = useFetch(`${urls.gamesUrl}/${gameId}`, {}, [gameId]);
+    const [game, setGame] = useGetOneGames(gameId);
 
 
     async function deleteButtonHandler() {

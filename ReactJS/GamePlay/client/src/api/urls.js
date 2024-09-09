@@ -1,11 +1,11 @@
-const gamesUrl = "http://localhost:3030/jsonstore/gamePlay/games";
-const commentsUrl = "http://localhost:3030/jsonstore/gamePlay/comments";
-const profilesUrl = "http://localhost:3030/jsonstore/gamePlay/profiles";
+const gamesUrl = "http://localhost:3030/data/games";
+const commentsUrl = "http://localhost:3030/data/comments";
+const usersUrl = "http://localhost:3030/users";
 
 const urls = {
     gamesUrl,
     commentsUrl,
-    profilesUrl
+    usersUrl
 };
 
 export default urls;
