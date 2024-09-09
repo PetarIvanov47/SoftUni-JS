@@ -14,8 +14,10 @@ import { useState } from "react"
 function App() {
     const [authState, setAuthState] = useState({});
 
-    const changeAuthState = ({password, ...userData}) => {
-        setAuthState(userData);
+    const changeAuthState = (state) => {
+        localStorage.setItem('accessToken', state.accessToken);
+
+        setAuthState(state);
     };
 
     const contextData = {
