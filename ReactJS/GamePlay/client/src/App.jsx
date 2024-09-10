@@ -5,7 +5,7 @@ import GameDetails from "./components/game-details/GameDetails"
 import Header from "./components/header/Header"
 
 import Home from "./components/home/Home"
-import { Routes, Route, useNavigate, Navigate } from "react-router-dom"
+import { Routes, Route } from "react-router-dom"
 import RegisterPage from "./components/Register/RegisterPage"
 import LoginPage from "./components/LogIn/LoginPage"
 import { AuthContext } from "./components/context/AuthContext"
@@ -13,6 +13,7 @@ import { useState } from "react"
 
 function App() {
     const [authState, setAuthState] = useState({});
+    localStorage.removeItem('accessToken');
 
     const changeAuthState = (state) => {
         localStorage.setItem('accessToken', state.accessToken);

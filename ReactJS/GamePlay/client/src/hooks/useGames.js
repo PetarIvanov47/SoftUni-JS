@@ -34,4 +34,5 @@ export function useGetOneGames(gameId) {
 
     }, [gameId]);
 
+    return game
 }

@@ -19,7 +19,7 @@ export default function EditGame() {
             navigate(`/details/${game._id}`);
 
         } catch (error) {
-            console.log(error.message());
+            console.log(error.message);
         }
 
     };

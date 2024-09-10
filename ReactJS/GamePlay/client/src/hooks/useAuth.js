@@ -9,7 +9,7 @@ export const useLogin = () => {
 
         const {password: _, ...authData} = await login(email, password);
         
-        console.log(authData);
+        
         changeAuthState(authData);
 
     };
@@ -23,7 +23,7 @@ export const useRegister = () => {
     const registerHandler = async (email, username, password ) => {
         const {password: _, ...authData} = await register(email, username, password);
 
-        console.log((authData));
+        
         changeAuthState(authData);
     };
 

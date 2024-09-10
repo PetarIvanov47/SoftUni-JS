@@ -11,7 +11,7 @@ export default function GameDetails() {
     const navigate = useNavigate();
     const [refreshComments, setRefreshComments] = useState(false);
 
-    const [game, setGame] = useGetOneGames(gameId);
+    const game = useGetOneGames(gameId);
 
 
     async function deleteButtonHandler() {
@@ -20,7 +20,7 @@ export default function GameDetails() {
 
             navigate('/');
         } catch (error) {
-            console.log(error.message());
+            console.log(error.message);
         }
     }
 
