@@ -14,7 +14,7 @@ export function useFetch(url, initialData = [], dependencies = []) {
             try {
                 const response = await fetch(url, { signal: abortController.signal });
 
-                if(!response.ok){
+                if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
 
@@ -22,9 +22,9 @@ export function useFetch(url, initialData = [], dependencies = []) {
                 setData(result);
 
             } catch (error) {
-                if (error.name === 'AbortError'){
+                if (error.name === 'AbortError') {
                     console.log('Fetch aborted')
-                } else{
+                } else {
                     console.log(error.message)
                 }
             }

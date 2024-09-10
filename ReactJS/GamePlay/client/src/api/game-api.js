@@ -2,6 +2,7 @@ import * as requester from './requester'
 import urls from "./urls";
 
 const allGamesUrl = urls.gamesUrl;
+const latestGameUrl = urls.latestGamesUrl;
 
 export const allGames = async () => {
     
@@ -21,8 +22,8 @@ export const deleteGame = (gameId) => requester.del(`${allGamesUrl}/${gameId}`);
 export const editGame = (gameId, data) => requester.put(`${allGamesUrl}/${gameId}`, data);
 
 export const getLatestGames = async () => {
-    const games = await allGames(allGamesUrl);
-    const latestGames = games.slice(-3).reverse();
+    const result = await requester.get(`${latestGameUrl}`);
+    const latestGames = Object.values(result);
 
     return latestGames
 };

@@ -19,11 +19,29 @@ export function useGetAllGames() {
     }, []);
 
     return [games, setGames]
-}
+};
+
+export function useGetLatestGames() {
+    const [latestGames, setLatestGames] = useState([]);
+
+    useEffect(() => {
+
+        (async () => {
+            const latestGames = await gameAPI.getLatestGames();
+            
+            setLatestGames(latestGames);
+
+        })();
+
+    }, []);
+
+    return latestGames
+
+};
 
 export function useGetOneGames(gameId) {
     const [game, setGame] = useState({});
-
+    
     useEffect(() => {
 
         (async () => {

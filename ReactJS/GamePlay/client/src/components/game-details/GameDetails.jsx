@@ -13,7 +13,6 @@ export default function GameDetails() {
 
     const game = useGetOneGames(gameId);
 
-
     async function deleteButtonHandler() {
         try {
             await gameAPI.deleteGame(gameId);

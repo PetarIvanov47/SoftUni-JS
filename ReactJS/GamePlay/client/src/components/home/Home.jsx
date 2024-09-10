@@ -1,14 +1,9 @@
 import LatestGameItem from "./latestGameItem";
 import Spinner from "../spinner/Spinner";
-import { useGetAllGames } from "../../hooks/useGames";
+import { useGetLatestGames } from "../../hooks/useGames";
 
 export default function Home() {
-    const [games] = useGetAllGames();
-
-    const latestGames = games
-        .slice(-3)
-        .reverse();
-
+    const latestGames = useGetLatestGames();
 
     return (
         <section id="welcome-world">
