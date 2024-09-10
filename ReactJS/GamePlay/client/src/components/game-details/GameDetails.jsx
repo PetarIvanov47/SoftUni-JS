@@ -12,7 +12,7 @@ export default function GameDetails() {
     const navigate = useNavigate();
     const { gameId } = useParams();
     const [refreshComments, setRefreshComments] = useState(false);
-    const { userId } = useContext(AuthContext);
+    const { userId, isAuthenticated } = useContext(AuthContext);
 
     const comments = useGetComments(gameId, refreshComments);
 
@@ -78,7 +78,11 @@ export default function GameDetails() {
                 </div>
             </div>
 
-            <CreateComment gameId={gameId} onCommentCreated={handleCommentCreated} />
+            {(isAuthenticated && game._ownerId !== userId)
+                &&
+                <CreateComment gameId={gameId} onCommentCreated={handleCommentCreated} />
+            }
+
         </section>
     )
 }
