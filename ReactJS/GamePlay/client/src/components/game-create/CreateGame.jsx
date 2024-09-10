@@ -14,7 +14,7 @@ const initialValues = {
 export default function CreateGame() {
     const navigate = useNavigate();
 
-    const formSubmitHandler = async (e) => {
+    const formSubmitHandler = async () => {
         
         try {
             const newGame = await gameAPI.createGame(formValues);

@@ -1,32 +1,29 @@
 import * as requester from './requester'
-import urls from "./urls";
 
-const allGamesUrl = urls.gamesUrl;
-const latestGameUrl = urls.latestGamesUrl;
+const BASE_URL = "http://localhost:3030/data/games";
 
 export const allGames = async () => {
-    
-    const data = await requester.get(allGamesUrl);
-    
+    const data = await requester.get(`${BASE_URL}?sortBy=_createdOn%20desc`);
     const games = Object.values(data);
 
     return games
 };
 
-export const createGame = (data) => requester.post(allGamesUrl, data);
-
-export const getGameByID = (gameId) => requester.get(`${allGamesUrl}/${gameId}`);
-
-export const deleteGame = (gameId) => requester.del(`${allGamesUrl}/${gameId}`);
-
-export const editGame = (gameId, data) => requester.put(`${allGamesUrl}/${gameId}`, data);
-
 export const getLatestGames = async () => {
-    const result = await requester.get(`${latestGameUrl}`);
+    const result = await requester.get(`${BASE_URL}?sortBy=_createdOn%20desc&pageSize=3`);
     const latestGames = Object.values(result);
 
     return latestGames
 };
+
+export const createGame = (data) => requester.post(BASE_URL, data);
+
+export const getGameByID = (gameId) => requester.get(`${BASE_URL}/${gameId}`);
+
+export const deleteGame = (gameId) => requester.del(`${BASE_URL}/${gameId}`);
+
+export const editGame = (gameId, data) => requester.put(`${BASE_URL}/${gameId}`, data);
+
 
 const gameAPI = {
     allGames,

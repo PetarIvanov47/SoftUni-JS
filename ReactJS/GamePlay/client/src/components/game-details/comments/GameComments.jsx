@@ -1,6 +1,7 @@
 import GameCommentItem from "./GameCommentItem";
 import { useFetch } from "../../../hooks/useFetch";
-import urls from "../../../api/urls";
+
+const BASE_URL = "http://localhost:3030/jsonstore/comments"
 
 export default function GameComments({
     gameId,
@@ -8,7 +9,7 @@ export default function GameComments({
 }) {
     const {
         data,
-    } = useFetch(urls.commentsUrl, {}, [refreshComments]);
+    } = useFetch(BASE_URL, {}, [refreshComments]);
 
     const allGameComments = Object
         .values(data)
