@@ -1,17 +1,26 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom"
 import CreateComment from "./comments/CreateComment";
-import GameComments from "./comments/GameComments";
 
 import gameAPI from "../../api/game-api";
 import { useGetOneGames } from "../../hooks/useGames";
+import { AuthContext } from "../context/AuthContext";
+import { useGetComments } from "../../hooks/useComments";
+import GameCommentItem from "./comments/GameCommentItem";
 
 export default function GameDetails() {
-    const { gameId } = useParams();
     const navigate = useNavigate();
+    const { gameId } = useParams();
     const [refreshComments, setRefreshComments] = useState(false);
+    const { userId } = useContext(AuthContext);
+
+    const comments = useGetComments(gameId, refreshComments);
 
     const game = useGetOneGames(gameId);
+
+    function handleCommentCreated() {
+        setRefreshComments(prev => !prev);
+    }
 
     async function deleteButtonHandler() {
         try {
@@ -21,10 +30,6 @@ export default function GameDetails() {
         } catch (error) {
             console.log(error.message);
         }
-    }
-
-    function handleCommentCreated() {
-        setRefreshComments(prev => !prev);
     }
 
     return (
@@ -41,21 +46,35 @@ export default function GameDetails() {
 
                 <p className="text">{game.summary}</p>
 
-                <GameComments gameId={gameId} refreshComments={refreshComments} />
+                <div className="details-comments">
+                    <h2>Comments:</h2>
+
+                    {comments.length === 0
+                        ? <p className="no-comment">No comments.</p>
+                        : <ul>
+                            {comments.map(comment => <GameCommentItem key={comment._id} text={comment.content} />)}
+                        </ul>
+                    }
+                </div>
 
                 <div className="buttons">
-                    <Link to={`/game/edit/${game._id}`}
-                        className="button"
-                        state={{ game }}
-                    >
-                        Edit
-                    </Link>
-                    <Link
-                        className="button"
-                        onClick={deleteButtonHandler}
-                    >
-                        Delete
-                    </Link>
+                    {game._ownerId === userId && <>
+                        <Link to={`/game/edit/${game._id}`}
+                            className="button"
+                            state={{ game }}
+                        >
+                            Edit
+                        </Link>
+                        <Link
+                            className="button"
+                            onClick={deleteButtonHandler}
+                        >
+                            Delete
+                        </Link>
+                    </>
+                    }
+
+
                 </div>
             </div>
 

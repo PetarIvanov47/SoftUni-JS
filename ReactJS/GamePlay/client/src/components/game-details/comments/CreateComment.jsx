@@ -6,7 +6,7 @@ export default function CreateComment({
     onCommentCreated
 }) {
     const initialData = {
-        commentText: "",
+        content: '',
         gameId: gameId,
     };
 
@@ -35,9 +35,9 @@ export default function CreateComment({
             <label>Add new comment:</label>
             <form className="form" onSubmit={submitHandler}>
                 <textarea
-                    name="commentText"
+                    name="content"
                     placeholder="Comment......"
-                    value={values.commentText}
+                    value={values.content}
                     onChange={changeHandler}
                     required
                 />
@@ -45,7 +45,7 @@ export default function CreateComment({
                     className="btn submit"
                     type="submit"
                     value="Add Comment"
-                    disabled={!values.commentText.trim()}
+                    disabled={!values.content.trim()}
                 />
             </form>
         </article>

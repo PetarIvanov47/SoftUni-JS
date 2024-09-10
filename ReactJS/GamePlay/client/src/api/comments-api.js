@@ -1,27 +1,19 @@
 import * as requester from "./requester";
 
-const BASE_URL = "http://localhost:3030/jsonstore/gamePlay/comments";
+const BASE_URL = "http://localhost:3030/data/comments";
 
 export const createComment = (data) => requester.post(BASE_URL, data);
 
-export const allComments = () => requester.get(BASE_URL);
+export const gameComments = async (gameId) => {
+    const result = await requester.get(`${BASE_URL}?where=gameId%3D%22${gameId}%22`);
+    const comments = Object.values(result);
+    
+    return comments
+};
 
-export async function gameComments(gameId) {
-    const data = await allComments();
-
-    const result = Object
-        .values(data)
-        .filter(comment => comment.gameId === gameId)
-        .slice(-6)
-        .reverse()
-
-    return result
-
-}
 
 const commentAPI = {
     createComment,
-    allComments,
     gameComments,
 };
 
