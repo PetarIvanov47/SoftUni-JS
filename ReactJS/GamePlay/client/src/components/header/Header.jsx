@@ -4,7 +4,7 @@ import { AuthContext } from "../context/AuthContext";
 
 
 export default function Header() {
-    const { username, isAuthenticated } = useContext(AuthContext);
+    const { username, isAuthenticated, logOut } = useContext(AuthContext);
 
     return (
         <header>
@@ -18,7 +18,7 @@ export default function Header() {
                     ? (
                         <div id="user">
                             <Link to="/game/create">Create Game</Link>
-                            <Link to="/">Logout</Link>
+                            <Link to="/" onClick={() => logOut()}>Logout</Link>
                         </div>
                     )
                     : (

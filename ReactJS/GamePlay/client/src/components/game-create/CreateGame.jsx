@@ -18,6 +18,7 @@ export default function CreateGame() {
         
         try {
             const newGame = await gameAPI.createGame(formValues);
+            
             navigate(`/details/${newGame._id}`);
         } catch (error) {
             console.log(error.message);

@@ -13,12 +13,15 @@ import { useState } from "react"
 
 function App() {
     const [authState, setAuthState] = useState({});
-    localStorage.removeItem('accessToken');
 
     const changeAuthState = (state) => {
         localStorage.setItem('accessToken', state.accessToken);
 
         setAuthState(state);
+    };
+
+    const logOut = () => {
+        setAuthState({});
     };
 
     const contextData = {
@@ -28,6 +31,7 @@ function App() {
         accessToken: authState.accessToken,
         isAuthenticated: !!authState.email,
         changeAuthState,
+        logOut,
     };
 
     return (
