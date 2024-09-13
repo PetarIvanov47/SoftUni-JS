@@ -1,22 +1,20 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom"
 import CreateComment from "./comments/CreateComment";
 
 import gameAPI from "../../api/game-api";
 import { useGetOneGames } from "../../hooks/useGames";
-import { AuthContext } from "../context/AuthContext";
 import { useGetComments } from "../../hooks/useComments";
 import GameCommentItem from "./comments/GameCommentItem";
+import { useAuthContext } from "../context/AuthContext";
 
 export default function GameDetails() {
-    const navigate = useNavigate();
     const { gameId } = useParams();
     const [refreshComments, setRefreshComments] = useState(false);
-    const { userId, isAuthenticated } = useContext(AuthContext);
-
+    const { userId, isAuthenticated } = useAuthContext();
     const comments = useGetComments(gameId, refreshComments);
-
     const game = useGetOneGames(gameId);
+    const navigate = useNavigate();
 
     function handleCommentCreated() {
         setRefreshComments(prev => !prev);
@@ -42,6 +40,7 @@ export default function GameDetails() {
                     <h1>{game.title}</h1>
                     <span className="levels">MaxLevel: {game.maxLevel}</span>
                     <p className="type">{game.category}</p>
+                    
                 </div>
 
                 <p className="text">{game.summary}</p>

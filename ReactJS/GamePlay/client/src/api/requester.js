@@ -1,7 +1,9 @@
+import getAccessTokenUtil from "../utils/getAccessTokenUtil";
+
 export default async function requester(method, url, data) {
     const options = {};
 
-    const accessToken = localStorage.getItem('accessToken');
+    const accessToken = getAccessTokenUtil();
     
     if(accessToken){
         options.headers = {
