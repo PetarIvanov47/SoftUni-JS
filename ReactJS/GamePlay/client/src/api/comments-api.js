@@ -2,13 +2,15 @@ import * as requester from "./requester";
 
 const BASE_URL = "http://localhost:3030/data/comments";
 
-export const createComment = (data) => requester.post(BASE_URL, data);
+export const createComment = (gameId, content) => requester.post(BASE_URL, { gameId, content });
 
-export const gameComments = async (gameId) => {
-    const result = await requester.get(`${BASE_URL}?where=gameId%3D%22${gameId}%22`);
-    const comments = Object.values(result);
-    
-    return comments
+export const gameComments = (gameId) => {
+    const params = new URLSearchParams({
+        where: `gameId="${gameId}"`,
+        load: `author=_ownerId:users`,
+    });
+
+    return requester.get(`${BASE_URL}?${params.toString()}`);
 };
 
 

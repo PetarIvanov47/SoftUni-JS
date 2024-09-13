@@ -15,5 +15,5 @@ export function useGetComments(gameId, refreshComments) {
 
     }, [refreshComments]);
 
-    return comments
+    return [comments, setComments]
 }

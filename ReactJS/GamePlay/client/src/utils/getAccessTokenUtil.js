@@ -1,9 +1,10 @@
 export default function(){
-    const userData = JSON.parse(localStorage.getItem('auth'));
-
-    if(!userData){
-        return 
-    }
+    const authJSON = localStorage.getItem('auth');
+    const authData = JSON.parse(authJSON);
     
-    return userData.accessToken;
+    if(!authData){
+        return '';
+    }
+
+    return authData.accessToken;
 };

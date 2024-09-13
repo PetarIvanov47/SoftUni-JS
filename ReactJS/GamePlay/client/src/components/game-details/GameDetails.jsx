@@ -1,23 +1,23 @@
-import { useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom"
 import CreateComment from "./comments/CreateComment";
 
 import gameAPI from "../../api/game-api";
 import { useGetOneGames } from "../../hooks/useGames";
-import { useGetComments } from "../../hooks/useComments";
-import GameCommentItem from "./comments/GameCommentItem";
 import { useAuthContext } from "../context/AuthContext";
+import GameCommentsList from "./comments/GameCommentsList";
+import { useGetComments } from "../../hooks/useComments";
 
 export default function GameDetails() {
     const { gameId } = useParams();
-    const [refreshComments, setRefreshComments] = useState(false);
-    const { userId, isAuthenticated } = useAuthContext();
-    const comments = useGetComments(gameId, refreshComments);
     const game = useGetOneGames(gameId);
+    const [comments, setComments] = useGetComments(gameId);
+    
+    const { userId, isAuthenticated } = useAuthContext();
     const navigate = useNavigate();
 
-    function handleCommentCreated() {
-        setRefreshComments(prev => !prev);
+    function handleCommentCreated(newComment) {
+        setComments(oldComments => ([...oldComments, newComment]));
+        console.log(comments)
     }
 
     async function deleteButtonHandler() {
@@ -45,16 +45,7 @@ export default function GameDetails() {
 
                 <p className="text">{game.summary}</p>
 
-                <div className="details-comments">
-                    <h2>Comments:</h2>
-
-                    {comments.length === 0
-                        ? <p className="no-comment">No comments.</p>
-                        : <ul>
-                            {comments.map(comment => <GameCommentItem key={comment._id} text={comment.content} />)}
-                        </ul>
-                    }
-                </div>
+                <GameCommentsList comments={comments}/>
 
                 <div className="buttons">
                     {game._ownerId === userId && <>
@@ -72,7 +63,6 @@ export default function GameDetails() {
                         </Link>
                     </>
                     }
-
 
                 </div>
             </div>

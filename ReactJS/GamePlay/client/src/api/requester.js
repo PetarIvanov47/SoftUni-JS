@@ -5,6 +5,8 @@ export default async function requester(method, url, data) {
 
     const accessToken = getAccessTokenUtil();
     
+    console.log(accessToken);
+
     if(accessToken){
         options.headers = {
             ...options.headers,

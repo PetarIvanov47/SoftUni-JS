@@ -7,14 +7,13 @@ export default function CreateComment({
 }) {
     const initialData = {
         content: '',
-        gameId: gameId,
     };
 
-    const formSubmitHandler = () => {
+    const formSubmitHandler = async ({ content }) => {
         try {
-            commentAPI.createComment(values);
+            const newComment = await commentAPI.createComment(gameId, content);
             clearFormFields();
-            onCommentCreated();
+            onCommentCreated(newComment);
 
         } catch (error) {
             console.log(error.message);

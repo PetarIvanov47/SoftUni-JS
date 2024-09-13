@@ -3,9 +3,8 @@ import { useLogOut } from "../../hooks/useAuth";
 
 export default function Logout(){
     const logout = useLogOut();
-
     logout();
-    
+
     return (
         <Navigate to='/'/>
     );
