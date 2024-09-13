@@ -4,14 +4,13 @@ export default function usePersistedState(key, initialState) {
     const [state, setState] = useState(() => {
         const localStorageData = localStorage.getItem(key);
 
-        if (localStorageData) {
+        if (!localStorageData) {
             return typeof initialState === 'function'
                 ? initialState()
                 : initialState
         }
 
         return JSON.parse(localStorageData);
-
     });
 
     const updateState = (value) => {

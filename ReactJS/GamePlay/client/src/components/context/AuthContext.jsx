@@ -1,5 +1,6 @@
 import { createContext, useContext } from "react";
 import usePersistedState from "../../hooks/usePersistedState";
+import { logout } from "../../api/auth-api";
 
 export const AuthContext = createContext();
 
@@ -10,18 +11,19 @@ export function AuthContextProvider(props) {
         setAuthState(state);
     };
 
-    const logOut = () => {
-        setAuthState({});
+    const logout = () => {
+        setAuthState(null);
+        
     };
 
     const contextData = {
-        userId: authState._id,
-        email: authState.email,
-        username: authState.username,
-        accessToken: authState.accessToken,
-        isAuthenticated: !!authState.email,
+        userId: authState?._id,
+        email: authState?.email,
+        username: authState?.username,
+        accessToken: authState?.accessToken,
+        isAuthenticated: !!authState?.email,
         changeAuthState,
-        logOut,
+        logout,
     };
 
     return (

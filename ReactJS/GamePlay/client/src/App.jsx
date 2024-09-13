@@ -9,6 +9,7 @@ import { Routes, Route } from "react-router-dom"
 import RegisterPage from "./components/Register/RegisterPage"
 import LoginPage from "./components/LogIn/LoginPage"
 import { AuthContextProvider } from "./components/context/AuthContext"
+import Logout from "./components/logout/LogOut"
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/login" element={<LoginPage />} />
+                        <Route path="/logout" element={<Logout />} />
                         <Route path="/register" element={<RegisterPage />} />
                         <Route path="/game/create" element={<CreateGame />} />
                         <Route path="/details/:gameId" element={<GameDetails />} />
