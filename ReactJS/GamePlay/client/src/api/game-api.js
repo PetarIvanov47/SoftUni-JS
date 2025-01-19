@@ -10,7 +10,13 @@ export const allGames = async () => {
 };
 
 export const getLatestGames = async () => {
-    const result = await requester.get(`${BASE_URL}?sortBy=_createdOn%20desc&pageSize=3`);
+    const params = new URLSearchParams({
+        sortBy: '_createdOn desc',
+        pageSize: '3',
+
+    });
+
+    const result = await requester.get(`${BASE_URL}?${params.toString()}`);
     const latestGames = Object.values(result);
 
     return latestGames

@@ -10,7 +10,6 @@ export default function EditGame() {
     const navigate = useNavigate();
     const initialData = { ...game };
 
-
     const formSubmitHandler = async (e) => {
         try {
             await gameAPI.editGame(gameData._id, gameData);

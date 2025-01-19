@@ -21,13 +21,18 @@ export default function GameDetails() {
     }
 
     async function deleteButtonHandler() {
-        try {
-            await gameAPI.deleteGame(gameId);
+        const isConfirmed = confirm(`Are you sure you want to delete ${game.title}?`);
 
-            navigate('/');
-        } catch (error) {
-            console.log(error.message);
-        }
+        if(isConfirmed){
+            try {
+                await gameAPI.deleteGame(gameId);
+    
+                navigate('/');
+            } catch (error) {
+                console.log(error.message);
+            }
+        };
+
     }
 
     return (
