@@ -27,6 +27,8 @@ export const useRegister = () => {
 
 };
 
+const a = 5;
+
 // export const useLogOut = () => {
 //     const { logout: localLogOut } = useAuthContext();
 
