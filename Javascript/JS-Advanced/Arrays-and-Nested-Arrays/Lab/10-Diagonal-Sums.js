@@ -1,25 +1,17 @@
 function solve(matrix) {
-    function findMainDiagonl(matrix){
-        let result = 0;
-        for (let row = 0; row < matrix.length; row++) {
-            for (let col = 0; col < matrix[row].length; col++) {
-                if (row == col) {
-                    result += matrix[row][col];
-                }
+    let mainDiagonal = 0;
+    let secondaryDiagonal = 0;
+    for(let row = 0; row < matrix.length; row++){
+        for(let col = 0; col < matrix[row].length; col++){
+            if(row == col){
+                mainDiagonal += matrix[row][col];
+                secondaryDiagonal += matrix[row][matrix[row].length - 1 - row];
+                                            
             }
         }
-        return result
     }
 
-    let mainDiagonal = findMainDiagonl(matrix);
-    
-    const reversedMatrix = matrix
-        .map(row => row.reverse());
-    
-    let secondaryDiagonal = findMainDiagonl(reversedMatrix);
-
     console.log(`${mainDiagonal} ${secondaryDiagonal}`)
-
 }
 
 solve([
